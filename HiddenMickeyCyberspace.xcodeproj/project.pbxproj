@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		E9A26742266BE12200665698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26741266BE12200665698 /* AppDelegate.swift */; };
 		E9A26744266BE12200665698 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26743266BE12200665698 /* SceneDelegate.swift */; };
-		E9A26746266BE12200665698 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26745266BE12200665698 /* ViewController.swift */; };
-		E9A26749266BE12200665698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A26747266BE12200665698 /* Main.storyboard */; };
 		E9A2674B266BE12300665698 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2674A266BE12300665698 /* Assets.xcassets */; };
 		E9A2674E266BE12300665698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A2674C266BE12300665698 /* LaunchScreen.storyboard */; };
+		E9A26757266BE94200665698 /* HMCHomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26755266BE94200665698 /* HMCHomeMapViewController.swift */; };
+		E9A26758266BE94200665698 /* HMCHomeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E9A2673E266BE12200665698 /* HiddenMickeyCyberspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenMickeyCyberspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A26741266BE12200665698 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A26743266BE12200665698 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E9A26745266BE12200665698 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E9A26748266BE12200665698 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9A2674A266BE12300665698 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9A2674D266BE12300665698 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9A2674F266BE12300665698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9A26755266BE94200665698 /* HMCHomeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCHomeMapViewController.swift; sourceTree = "<group>"; };
+		E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCHomeMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +58,11 @@
 			children = (
 				E9A26741266BE12200665698 /* AppDelegate.swift */,
 				E9A26743266BE12200665698 /* SceneDelegate.swift */,
-				E9A26745266BE12200665698 /* ViewController.swift */,
-				E9A26747266BE12200665698 /* Main.storyboard */,
 				E9A2674A266BE12300665698 /* Assets.xcassets */,
 				E9A2674C266BE12300665698 /* LaunchScreen.storyboard */,
 				E9A2674F266BE12300665698 /* Info.plist */,
+				E9A26755266BE94200665698 /* HMCHomeMapViewController.swift */,
+				E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */,
 			);
 			path = HiddenMickeyCyberspace;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9A26758266BE94200665698 /* HMCHomeMapViewController.xib in Resources */,
 				E9A2674E266BE12300665698 /* LaunchScreen.storyboard in Resources */,
 				E9A2674B266BE12300665698 /* Assets.xcassets in Resources */,
-				E9A26749266BE12200665698 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +137,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9A26746266BE12200665698 /* ViewController.swift in Sources */,
 				E9A26742266BE12200665698 /* AppDelegate.swift in Sources */,
 				E9A26744266BE12200665698 /* SceneDelegate.swift in Sources */,
+				E9A26757266BE94200665698 /* HMCHomeMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E9A26747266BE12200665698 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E9A26748266BE12200665698 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E9A2674C266BE12300665698 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
