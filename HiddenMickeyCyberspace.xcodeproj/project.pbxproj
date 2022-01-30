@@ -3,19 +3,56 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D555134D3BE6789089D1240E /* Pods_HiddenMickeyCyberspace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EEE5AB0EC62278A058E79 /* Pods_HiddenMickeyCyberspace.framework */; };
+		E924DB3D2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924DB3B2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift */; };
+		E924DB3E2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E924DB3C2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib */; };
+		E924DB402688317C009E021E /* HMCStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924DB3F2688317C009E021E /* HMCStyles.swift */; };
+		E924DB43268C171D009E021E /* HMCARCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924DB41268C171D009E021E /* HMCARCameraViewController.swift */; };
+		E924DB44268C171D009E021E /* HMCARCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E924DB42268C171D009E021E /* HMCARCameraViewController.xib */; };
+		E956714227A512D100E4D52C /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714127A512D100E4D52C /* UIColorExtensions.swift */; };
+		E956714427A5BC1C00E4D52C /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714327A5BC1C00E4D52C /* CustomAnnotationView.swift */; };
+		E956714627A642D800E4D52C /* HMCAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714527A642D800E4D52C /* HMCAnnotationView.swift */; };
+		E956715027A6567600E4D52C /* TempGlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714F27A6567600E4D52C /* TempGlobalVariables.swift */; };
+		E976AB81267275F600EA09F9 /* HMCRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */; };
+		E976AB852672ADA200EA09F9 /* HMCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB842672ADA200EA09F9 /* HMCViewController.swift */; };
+		E976AB872672B00700EA09F9 /* HMCLocationProximityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */; };
+		E976AB892672B34700EA09F9 /* HMCHiddenMickey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */; };
+		E976AB8B2672CBC600EA09F9 /* HMCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB8A2672CBC600EA09F9 /* HMCModel.swift */; };
+		E976AB8D2672CDF500EA09F9 /* HMCLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */; };
 		E9A26742266BE12200665698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26741266BE12200665698 /* AppDelegate.swift */; };
 		E9A26744266BE12200665698 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26743266BE12200665698 /* SceneDelegate.swift */; };
 		E9A2674B266BE12300665698 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2674A266BE12300665698 /* Assets.xcassets */; };
 		E9A2674E266BE12300665698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A2674C266BE12300665698 /* LaunchScreen.storyboard */; };
 		E9A26757266BE94200665698 /* HMCHomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26755266BE94200665698 /* HMCHomeMapViewController.swift */; };
 		E9A26758266BE94200665698 /* HMCHomeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */; };
+		E9A2675A266C498300665698 /* HMCMapKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26759266C498300665698 /* HMCMapKitExtension.swift */; };
+		E9AA7F2A266EEBD6002297D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9AA7F29266EEBD6002297D1 /* GoogleService-Info.plist */; };
+		E9FC260326DF35EA007820E9 /* HMCFinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC260126DF35EA007820E9 /* HMCFinalScoreViewController.swift */; };
+		E9FC260426DF35EA007820E9 /* HMCFinalScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC260226DF35EA007820E9 /* HMCFinalScoreViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4DA3C2F48672AF3E3A61026E /* Pods-HiddenMickeyCyberspace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiddenMickeyCyberspace.debug.xcconfig"; path = "Target Support Files/Pods-HiddenMickeyCyberspace/Pods-HiddenMickeyCyberspace.debug.xcconfig"; sourceTree = "<group>"; };
+		B60EEE5AB0EC62278A058E79 /* Pods_HiddenMickeyCyberspace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiddenMickeyCyberspace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E924DB3B2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCHomeProfileDrawerViewController.swift; sourceTree = "<group>"; };
+		E924DB3C2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCHomeProfileDrawerViewController.xib; sourceTree = "<group>"; };
+		E924DB3F2688317C009E021E /* HMCStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCStyles.swift; sourceTree = "<group>"; };
+		E924DB41268C171D009E021E /* HMCARCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCARCameraViewController.swift; sourceTree = "<group>"; };
+		E924DB42268C171D009E021E /* HMCARCameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCARCameraViewController.xib; sourceTree = "<group>"; };
+		E956714127A512D100E4D52C /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		E956714327A5BC1C00E4D52C /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		E956714527A642D800E4D52C /* HMCAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCAnnotationView.swift; sourceTree = "<group>"; };
+		E956714F27A6567600E4D52C /* TempGlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempGlobalVariables.swift; sourceTree = "<group>"; };
+		E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCRequestHandler.swift; sourceTree = "<group>"; };
+		E976AB842672ADA200EA09F9 /* HMCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCViewController.swift; sourceTree = "<group>"; };
+		E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCLocationProximityModel.swift; sourceTree = "<group>"; };
+		E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCHiddenMickey.swift; sourceTree = "<group>"; };
+		E976AB8A2672CBC600EA09F9 /* HMCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCModel.swift; sourceTree = "<group>"; };
+		E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCLocation.swift; sourceTree = "<group>"; };
 		E9A2673E266BE12200665698 /* HiddenMickeyCyberspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenMickeyCyberspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A26741266BE12200665698 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A26743266BE12200665698 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +61,11 @@
 		E9A2674F266BE12300665698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9A26755266BE94200665698 /* HMCHomeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCHomeMapViewController.swift; sourceTree = "<group>"; };
 		E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCHomeMapViewController.xib; sourceTree = "<group>"; };
+		E9A26759266C498300665698 /* HMCMapKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCMapKitExtension.swift; sourceTree = "<group>"; };
+		E9AA7F29266EEBD6002297D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9FC260126DF35EA007820E9 /* HMCFinalScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCFinalScoreViewController.swift; sourceTree = "<group>"; };
+		E9FC260226DF35EA007820E9 /* HMCFinalScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCFinalScoreViewController.xib; sourceTree = "<group>"; };
+		EDB1B44C452A1468D5E1085C /* Pods-HiddenMickeyCyberspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiddenMickeyCyberspace.release.xcconfig"; path = "Target Support Files/Pods-HiddenMickeyCyberspace/Pods-HiddenMickeyCyberspace.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +73,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D555134D3BE6789089D1240E /* Pods_HiddenMickeyCyberspace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FDEA2D97DB76ADCBAED6883 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4DA3C2F48672AF3E3A61026E /* Pods-HiddenMickeyCyberspace.debug.xcconfig */,
+				EDB1B44C452A1468D5E1085C /* Pods-HiddenMickeyCyberspace.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6ABEDF1C3B86A4512F4C93B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B60EEE5AB0EC62278A058E79 /* Pods_HiddenMickeyCyberspace.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9A26735266BE12200665698 = {
 			isa = PBXGroup;
 			children = (
 				E9A26740266BE12200665698 /* HiddenMickeyCyberspace */,
 				E9A2673F266BE12200665698 /* Products */,
+				0FDEA2D97DB76ADCBAED6883 /* Pods */,
+				6ABEDF1C3B86A4512F4C93B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,7 +124,26 @@
 				E9A2674C266BE12300665698 /* LaunchScreen.storyboard */,
 				E9A2674F266BE12300665698 /* Info.plist */,
 				E9A26755266BE94200665698 /* HMCHomeMapViewController.swift */,
+				E956714F27A6567600E4D52C /* TempGlobalVariables.swift */,
 				E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */,
+				E9A26759266C498300665698 /* HMCMapKitExtension.swift */,
+				E9AA7F29266EEBD6002297D1 /* GoogleService-Info.plist */,
+				E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */,
+				E976AB842672ADA200EA09F9 /* HMCViewController.swift */,
+				E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */,
+				E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */,
+				E976AB8A2672CBC600EA09F9 /* HMCModel.swift */,
+				E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */,
+				E924DB3B2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift */,
+				E924DB3C2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib */,
+				E924DB3F2688317C009E021E /* HMCStyles.swift */,
+				E924DB41268C171D009E021E /* HMCARCameraViewController.swift */,
+				E956714127A512D100E4D52C /* UIColorExtensions.swift */,
+				E956714327A5BC1C00E4D52C /* CustomAnnotationView.swift */,
+				E956714527A642D800E4D52C /* HMCAnnotationView.swift */,
+				E924DB42268C171D009E021E /* HMCARCameraViewController.xib */,
+				E9FC260126DF35EA007820E9 /* HMCFinalScoreViewController.swift */,
+				E9FC260226DF35EA007820E9 /* HMCFinalScoreViewController.xib */,
 			);
 			path = HiddenMickeyCyberspace;
 			sourceTree = "<group>";
@@ -74,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9A26752266BE12300665698 /* Build configuration list for PBXNativeTarget "HiddenMickeyCyberspace" */;
 			buildPhases = (
+				0A34DF5302E02DA2126A9AE9 /* [CP] Check Pods Manifest.lock */,
 				E9A2673A266BE12200665698 /* Sources */,
 				E9A2673B266BE12200665698 /* Frameworks */,
 				E9A2673C266BE12200665698 /* Resources */,
+				9B7BABAE6B4C8306117C3982 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +208,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A26758266BE94200665698 /* HMCHomeMapViewController.xib in Resources */,
+				E9AA7F2A266EEBD6002297D1 /* GoogleService-Info.plist in Resources */,
+				E924DB3E2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib in Resources */,
+				E9FC260426DF35EA007820E9 /* HMCFinalScoreViewController.xib in Resources */,
+				E924DB44268C171D009E021E /* HMCARCameraViewController.xib in Resources */,
 				E9A2674E266BE12300665698 /* LaunchScreen.storyboard in Resources */,
 				E9A2674B266BE12300665698 /* Assets.xcassets in Resources */,
 			);
@@ -132,14 +219,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A34DF5302E02DA2126A9AE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HiddenMickeyCyberspace-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B7BABAE6B4C8306117C3982 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiddenMickeyCyberspace/Pods-HiddenMickeyCyberspace-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HiddenMickeyCyberspace/Pods-HiddenMickeyCyberspace-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HiddenMickeyCyberspace/Pods-HiddenMickeyCyberspace-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E9A2673A266BE12200665698 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E924DB3D2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift in Sources */,
+				E976AB8B2672CBC600EA09F9 /* HMCModel.swift in Sources */,
 				E9A26742266BE12200665698 /* AppDelegate.swift in Sources */,
 				E9A26744266BE12200665698 /* SceneDelegate.swift in Sources */,
+				E976AB8D2672CDF500EA09F9 /* HMCLocation.swift in Sources */,
+				E976AB81267275F600EA09F9 /* HMCRequestHandler.swift in Sources */,
+				E956714427A5BC1C00E4D52C /* CustomAnnotationView.swift in Sources */,
+				E956714627A642D800E4D52C /* HMCAnnotationView.swift in Sources */,
+				E924DB402688317C009E021E /* HMCStyles.swift in Sources */,
+				E976AB852672ADA200EA09F9 /* HMCViewController.swift in Sources */,
+				E9A2675A266C498300665698 /* HMCMapKitExtension.swift in Sources */,
+				E956714227A512D100E4D52C /* UIColorExtensions.swift in Sources */,
 				E9A26757266BE94200665698 /* HMCHomeMapViewController.swift in Sources */,
+				E924DB43268C171D009E021E /* HMCARCameraViewController.swift in Sources */,
+				E9FC260326DF35EA007820E9 /* HMCFinalScoreViewController.swift in Sources */,
+				E976AB892672B34700EA09F9 /* HMCHiddenMickey.swift in Sources */,
+				E956715027A6567600E4D52C /* TempGlobalVariables.swift in Sources */,
+				E976AB872672B00700EA09F9 /* HMCLocationProximityModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +419,7 @@
 		};
 		E9A26753266BE12300665698 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DA3C2F48672AF3E3A61026E /* Pods-HiddenMickeyCyberspace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +439,7 @@
 		};
 		E9A26754266BE12300665698 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDB1B44C452A1468D5E1085C /* Pods-HiddenMickeyCyberspace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

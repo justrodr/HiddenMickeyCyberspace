@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCFinalScoreViewController" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
+            <connections>
+                <outlet property="scoreLabel" destination="yuz-If-wyC" id="IeM-zN-MKZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuz-If-wyC">
+                    <rect key="frame" x="80" y="379.5" width="254" height="137"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="100"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbO-Tj-TnH">
+                    <rect key="frame" x="80" y="354.5" width="93" height="25"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.043137254899999998" green="0.43921568630000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yuz-If-wyC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="6M6-j2-DA0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yuz-If-wyC" secondAttribute="trailing" constant="16" id="9Wx-LX-e0S"/>
+                <constraint firstItem="yuz-If-wyC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9YO-Gv-oeh"/>
+                <constraint firstItem="yuz-If-wyC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="B0w-LV-bR5"/>
+                <constraint firstItem="yuz-If-wyC" firstAttribute="top" secondItem="IbO-Tj-TnH" secondAttribute="bottom" id="ZBT-n6-IBc"/>
+                <constraint firstItem="yuz-If-wyC" firstAttribute="leading" secondItem="IbO-Tj-TnH" secondAttribute="leading" id="p2f-nZ-d2e"/>
+            </constraints>
+            <point key="canvasLocation" x="126" y="38"/>
+        </view>
+    </objects>
+</document>
