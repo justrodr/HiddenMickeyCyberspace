@@ -9,7 +9,7 @@ import UIKit
 import ARKit
 
 protocol HMCARCameraViewControllerDelegate: AnyObject {
-    func didLeaveARView(score: Int)
+    func didLeaveARView(score: Int, ride: HMCRide?)
 }
 
 class HMCARCameraViewController: UIViewController {
@@ -19,6 +19,11 @@ class HMCARCameraViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var leaveButton: UIButton!
+    @IBOutlet weak var mickeyHeadView: UIView!
+    @IBOutlet weak var mickeyHeadRightEarView: UIView!
+    @IBOutlet weak var mickeyHeadLeftEarView: UIView!
+    @IBOutlet weak var scoreContainerView: UIView!
+    @IBOutlet weak var timerProgressBarView: TimerProgressBarView!
     
     private let hiddenMickeyPlacementRadius: CGFloat = 3
     private let hiddenMickeySize: CGFloat = 0.2
@@ -26,9 +31,11 @@ class HMCARCameraViewController: UIViewController {
     private let earDisplacementFactor = 0.9
     private let earSizeProportion = 0.7
     private var score: Int = 0
+    private let hideDistanceLabel: Bool = true
     weak var delegate: HMCARCameraViewControllerDelegate?
-    var mickeyHeadColor: UIColor = .blue
-    var mickeyEarColor: UIColor = .blue
+    var ride: HMCRide?
+//    var mickeyHeadColor: UIColor = .blue
+//    var mickeyEarColor: UIColor = .blue
     var counter: Int = 60
     var timer: Timer?
     
@@ -41,7 +48,34 @@ class HMCARCameraViewController: UIViewController {
         self.sceneView.autoenablesDefaultLighting = true
         self.sceneView.session.delegate = self
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        counter = 60
+        timerLabel.text = String(counter)
+        timerLabel.textColor = HMCOrange
+        scoreLabel.textColor = HMCTextColor1
+        if let ride = ride {
+            scoreLabel.textColor = ride.colors.headColor
+        }
+        leaveButton.layer.cornerRadius = 8
+        scoreContainerView.layer.cornerRadius = 50
+        mickeyHeadView.layer.cornerRadius = mickeyHeadView.frame.height / 2
+        mickeyHeadLeftEarView.layer.cornerRadius = mickeyHeadLeftEarView.frame.height / 2
+        mickeyHeadRightEarView.layer.cornerRadius = mickeyHeadRightEarView.frame.height / 2
+        mickeyHeadView.backgroundColor = ride?.colors.headColor ?? HMCBlue
+        mickeyHeadLeftEarView.backgroundColor = ride?.colors.earColor ?? HMCBlue
+        mickeyHeadRightEarView.backgroundColor = ride?.colors.earColor ?? HMCBlue
+        if let earBorderColor = ride?.colors.earBorderColor {
+            mickeyHeadLeftEarView.layer.borderWidth = 3
+            mickeyHeadLeftEarView.layer.borderColor = earBorderColor.cgColor
+            mickeyHeadRightEarView.layer.borderWidth = 3
+            mickeyHeadRightEarView.layer.borderColor = earBorderColor.cgColor
+        }
+        if let headBorderColor = ride?.colors.headBorderColor {
+            mickeyHeadView.layer.borderWidth = 3
+            mickeyHeadView.layer.borderColor = headBorderColor.cgColor
+        }
+        timerProgressBarView.setupView()
+        timerProgressBarView.animateBar()
+        distanceLabel.isHidden = hideDistanceLabel
+        scoreContainerView.backgroundColor = HMCWhite
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
         
@@ -54,7 +88,7 @@ class HMCARCameraViewController: UIViewController {
             counter -= 1
         } else {
             timer?.invalidate()
-            delegate?.didLeaveARView(score: score)
+            delegate?.didLeaveARView(score: score, ride: ride)
         }
     }
     
@@ -65,7 +99,7 @@ class HMCARCameraViewController: UIViewController {
         }
         
         for center in hiddenMickeyCenterPoints {
-            generateHiddenMickeyShape(center: center, size: hiddenMickeySize, headColor: mickeyHeadColor, earColor: mickeyEarColor)
+            generateHiddenMickeyShape(center: center, size: hiddenMickeySize, headColor: ride?.colors.headColor ?? HMCBlue, earColor: ride?.colors.earColor ?? HMCBlue)
         }
         
     }
@@ -144,7 +178,8 @@ class HMCARCameraViewController: UIViewController {
     }
     
     @IBAction func didPressLeaveButton(_ sender: Any) {
-        delegate?.didLeaveARView(score: score)
+        timer?.invalidate()
+        delegate?.didLeaveARView(score: score, ride: ride)
     }
     
 }

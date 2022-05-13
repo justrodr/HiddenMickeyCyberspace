@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCHomeMapViewController" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
             <connections>
+                <outlet property="centerButton" destination="7zF-f6-Nw8" id="Uvo-97-WY7"/>
+                <outlet property="drawerView" destination="WhA-vM-B4L" id="ogj-Hh-nIT"/>
+                <outlet property="leftButton" destination="zsF-tv-Wcf" id="cT5-S9-tzH"/>
                 <outlet property="mapView" destination="8du-m4-pXT" id="HH5-88-gu6"/>
+                <outlet property="rightButton" destination="N4c-cL-3Vs" id="gAC-Wh-VN5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,19 +27,76 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8du-m4-pXT">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </mapView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhA-vM-B4L">
+                    <rect key="frame" x="97" y="741" width="220" height="80"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4c-cL-3Vs">
+                            <rect key="frame" x="150" y="0.0" width="65" height="80"/>
+                            <color key="tintColor" red="0.1948041022" green="0.43284565209999998" blue="0.96475416420000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="" image="play"/>
+                            <connections>
+                                <action selector="didTapRightButton:" destination="-1" eventType="touchUpInside" id="k46-Vu-qDw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsF-tv-Wcf">
+                            <rect key="frame" x="5" y="0.0" width="65" height="80"/>
+                            <color key="tintColor" red="0.31176507469999998" green="0.43287169930000002" blue="0.96475392579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="" image="more"/>
+                            <connections>
+                                <action selector="didTapLeftButton:" destination="-1" eventType="touchUpInside" id="UBA-qG-mD2"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zF-f6-Nw8">
+                            <rect key="frame" x="70" y="0.0" width="80" height="80"/>
+                            <color key="backgroundColor" red="0.1948041022" green="0.43284565209999998" blue="0.96475416420000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="Qez-Wx-DsE"/>
+                                <constraint firstAttribute="height" constant="80" id="uQZ-fl-R4W"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="mickey"/>
+                            <connections>
+                                <action selector="didTapCenterButton:" destination="-1" eventType="touchUpInside" id="oyP-rT-TLj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="N4c-cL-3Vs" secondAttribute="trailing" constant="5" id="CaI-np-DQP"/>
+                        <constraint firstAttribute="bottom" secondItem="zsF-tv-Wcf" secondAttribute="bottom" id="Czw-iy-zOX"/>
+                        <constraint firstItem="7zF-f6-Nw8" firstAttribute="centerY" secondItem="WhA-vM-B4L" secondAttribute="centerY" id="DWb-iF-ot8"/>
+                        <constraint firstItem="N4c-cL-3Vs" firstAttribute="leading" secondItem="7zF-f6-Nw8" secondAttribute="trailing" id="DwL-Xv-YSE"/>
+                        <constraint firstItem="zsF-tv-Wcf" firstAttribute="top" secondItem="WhA-vM-B4L" secondAttribute="top" id="Jl5-xJ-E5C"/>
+                        <constraint firstItem="N4c-cL-3Vs" firstAttribute="top" secondItem="WhA-vM-B4L" secondAttribute="top" id="QME-PZ-rPx"/>
+                        <constraint firstAttribute="bottom" secondItem="N4c-cL-3Vs" secondAttribute="bottom" id="cAC-Fk-c9F"/>
+                        <constraint firstAttribute="width" constant="220" id="nKh-pK-nQk"/>
+                        <constraint firstAttribute="height" constant="80" id="sSU-CC-tHV"/>
+                        <constraint firstItem="7zF-f6-Nw8" firstAttribute="leading" secondItem="zsF-tv-Wcf" secondAttribute="trailing" id="uL8-MW-RVe"/>
+                        <constraint firstItem="zsF-tv-Wcf" firstAttribute="leading" secondItem="WhA-vM-B4L" secondAttribute="leading" constant="5" id="xVX-MI-ajq"/>
+                        <constraint firstItem="7zF-f6-Nw8" firstAttribute="centerX" secondItem="WhA-vM-B4L" secondAttribute="centerX" id="z8F-vK-ufr"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="8du-m4-pXT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GK7-ua-AD5"/>
+                <constraint firstItem="WhA-vM-B4L" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PL3-Gl-Z2O"/>
                 <constraint firstAttribute="bottom" secondItem="8du-m4-pXT" secondAttribute="bottom" id="T4o-Jl-A8E"/>
                 <constraint firstItem="8du-m4-pXT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Vjl-fT-ae4"/>
                 <constraint firstAttribute="trailing" secondItem="8du-m4-pXT" secondAttribute="trailing" id="Y7T-L7-eSh"/>
+                <constraint firstAttribute="bottom" secondItem="WhA-vM-B4L" secondAttribute="bottom" constant="75" id="fzc-hc-1Vg"/>
             </constraints>
             <point key="canvasLocation" x="139" y="118"/>
         </view>
     </objects>
     <resources>
+        <image name="mickey" width="36" height="36"/>
+        <image name="more" width="36" height="36"/>
+        <image name="play" width="36" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

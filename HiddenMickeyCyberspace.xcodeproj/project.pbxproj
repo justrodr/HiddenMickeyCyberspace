@@ -10,19 +10,24 @@
 		D555134D3BE6789089D1240E /* Pods_HiddenMickeyCyberspace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EEE5AB0EC62278A058E79 /* Pods_HiddenMickeyCyberspace.framework */; };
 		E924DB3D2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924DB3B2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift */; };
 		E924DB3E2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E924DB3C2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib */; };
-		E924DB402688317C009E021E /* HMCStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924DB3F2688317C009E021E /* HMCStyles.swift */; };
 		E924DB43268C171D009E021E /* HMCARCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924DB41268C171D009E021E /* HMCARCameraViewController.swift */; };
 		E924DB44268C171D009E021E /* HMCARCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E924DB42268C171D009E021E /* HMCARCameraViewController.xib */; };
 		E956714227A512D100E4D52C /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714127A512D100E4D52C /* UIColorExtensions.swift */; };
 		E956714427A5BC1C00E4D52C /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714327A5BC1C00E4D52C /* CustomAnnotationView.swift */; };
 		E956714627A642D800E4D52C /* HMCAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714527A642D800E4D52C /* HMCAnnotationView.swift */; };
 		E956715027A6567600E4D52C /* TempGlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956714F27A6567600E4D52C /* TempGlobalVariables.swift */; };
+		E96CBF71280FC54500EAD493 /* HMCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CBF6F280FC54500EAD493 /* HMCCollectionViewCell.swift */; };
+		E96CBF72280FC54500EAD493 /* HMCCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96CBF70280FC54500EAD493 /* HMCCollectionViewCell.xib */; };
 		E976AB81267275F600EA09F9 /* HMCRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */; };
 		E976AB852672ADA200EA09F9 /* HMCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB842672ADA200EA09F9 /* HMCViewController.swift */; };
 		E976AB872672B00700EA09F9 /* HMCLocationProximityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */; };
 		E976AB892672B34700EA09F9 /* HMCHiddenMickey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */; };
 		E976AB8B2672CBC600EA09F9 /* HMCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB8A2672CBC600EA09F9 /* HMCModel.swift */; };
 		E976AB8D2672CDF500EA09F9 /* HMCLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */; };
+		E998BDAC2821FDAC00164B70 /* HMCScoreAndCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E998BDAA2821FDAC00164B70 /* HMCScoreAndCollectionViewController.swift */; };
+		E998BDAD2821FDAC00164B70 /* HMCScoreAndCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E998BDAB2821FDAC00164B70 /* HMCScoreAndCollectionViewController.xib */; };
+		E99FE1AC27B89C4E00388C03 /* TimerProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FE1AB27B89C4E00388C03 /* TimerProgressBarView.swift */; };
+		E99FE1AE27B8C2C900388C03 /* ColorConstansts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FE1AD27B8C2C900388C03 /* ColorConstansts.swift */; };
 		E9A26742266BE12200665698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26741266BE12200665698 /* AppDelegate.swift */; };
 		E9A26744266BE12200665698 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26743266BE12200665698 /* SceneDelegate.swift */; };
 		E9A2674B266BE12300665698 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2674A266BE12300665698 /* Assets.xcassets */; };
@@ -31,6 +36,10 @@
 		E9A26758266BE94200665698 /* HMCHomeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */; };
 		E9A2675A266C498300665698 /* HMCMapKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A26759266C498300665698 /* HMCMapKitExtension.swift */; };
 		E9AA7F2A266EEBD6002297D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9AA7F29266EEBD6002297D1 /* GoogleService-Info.plist */; };
+		E9AC4C5F282A0436007DEE57 /* HMCProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC4C5D282A0436007DEE57 /* HMCProfileViewController.swift */; };
+		E9AC4C60282A0436007DEE57 /* HMCProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AC4C5E282A0436007DEE57 /* HMCProfileViewController.xib */; };
+		E9AC4C63282B01A6007DEE57 /* HMCMapCalloutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC4C61282B01A6007DEE57 /* HMCMapCalloutViewController.swift */; };
+		E9AC4C64282B01A6007DEE57 /* HMCMapCalloutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AC4C62282B01A6007DEE57 /* HMCMapCalloutViewController.xib */; };
 		E9FC260326DF35EA007820E9 /* HMCFinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC260126DF35EA007820E9 /* HMCFinalScoreViewController.swift */; };
 		E9FC260426DF35EA007820E9 /* HMCFinalScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC260226DF35EA007820E9 /* HMCFinalScoreViewController.xib */; };
 /* End PBXBuildFile section */
@@ -40,19 +49,24 @@
 		B60EEE5AB0EC62278A058E79 /* Pods_HiddenMickeyCyberspace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiddenMickeyCyberspace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E924DB3B2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCHomeProfileDrawerViewController.swift; sourceTree = "<group>"; };
 		E924DB3C2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCHomeProfileDrawerViewController.xib; sourceTree = "<group>"; };
-		E924DB3F2688317C009E021E /* HMCStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCStyles.swift; sourceTree = "<group>"; };
 		E924DB41268C171D009E021E /* HMCARCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCARCameraViewController.swift; sourceTree = "<group>"; };
 		E924DB42268C171D009E021E /* HMCARCameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCARCameraViewController.xib; sourceTree = "<group>"; };
 		E956714127A512D100E4D52C /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		E956714327A5BC1C00E4D52C /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		E956714527A642D800E4D52C /* HMCAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCAnnotationView.swift; sourceTree = "<group>"; };
 		E956714F27A6567600E4D52C /* TempGlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempGlobalVariables.swift; sourceTree = "<group>"; };
+		E96CBF6F280FC54500EAD493 /* HMCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCCollectionViewCell.swift; sourceTree = "<group>"; };
+		E96CBF70280FC54500EAD493 /* HMCCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCCollectionViewCell.xib; sourceTree = "<group>"; };
 		E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCRequestHandler.swift; sourceTree = "<group>"; };
 		E976AB842672ADA200EA09F9 /* HMCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCViewController.swift; sourceTree = "<group>"; };
 		E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCLocationProximityModel.swift; sourceTree = "<group>"; };
 		E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCHiddenMickey.swift; sourceTree = "<group>"; };
 		E976AB8A2672CBC600EA09F9 /* HMCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCModel.swift; sourceTree = "<group>"; };
 		E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCLocation.swift; sourceTree = "<group>"; };
+		E998BDAA2821FDAC00164B70 /* HMCScoreAndCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCScoreAndCollectionViewController.swift; sourceTree = "<group>"; };
+		E998BDAB2821FDAC00164B70 /* HMCScoreAndCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCScoreAndCollectionViewController.xib; sourceTree = "<group>"; };
+		E99FE1AB27B89C4E00388C03 /* TimerProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressBarView.swift; sourceTree = "<group>"; };
+		E99FE1AD27B8C2C900388C03 /* ColorConstansts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstansts.swift; sourceTree = "<group>"; };
 		E9A2673E266BE12200665698 /* HiddenMickeyCyberspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenMickeyCyberspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A26741266BE12200665698 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A26743266BE12200665698 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +77,10 @@
 		E9A26756266BE94200665698 /* HMCHomeMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCHomeMapViewController.xib; sourceTree = "<group>"; };
 		E9A26759266C498300665698 /* HMCMapKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCMapKitExtension.swift; sourceTree = "<group>"; };
 		E9AA7F29266EEBD6002297D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9AC4C5D282A0436007DEE57 /* HMCProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCProfileViewController.swift; sourceTree = "<group>"; };
+		E9AC4C5E282A0436007DEE57 /* HMCProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCProfileViewController.xib; sourceTree = "<group>"; };
+		E9AC4C61282B01A6007DEE57 /* HMCMapCalloutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCMapCalloutViewController.swift; sourceTree = "<group>"; };
+		E9AC4C62282B01A6007DEE57 /* HMCMapCalloutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCMapCalloutViewController.xib; sourceTree = "<group>"; };
 		E9FC260126DF35EA007820E9 /* HMCFinalScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCFinalScoreViewController.swift; sourceTree = "<group>"; };
 		E9FC260226DF35EA007820E9 /* HMCFinalScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCFinalScoreViewController.xib; sourceTree = "<group>"; };
 		EDB1B44C452A1468D5E1085C /* Pods-HiddenMickeyCyberspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiddenMickeyCyberspace.release.xcconfig"; path = "Target Support Files/Pods-HiddenMickeyCyberspace/Pods-HiddenMickeyCyberspace.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,7 +154,6 @@
 				E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */,
 				E924DB3B2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift */,
 				E924DB3C2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib */,
-				E924DB3F2688317C009E021E /* HMCStyles.swift */,
 				E924DB41268C171D009E021E /* HMCARCameraViewController.swift */,
 				E956714127A512D100E4D52C /* UIColorExtensions.swift */,
 				E956714327A5BC1C00E4D52C /* CustomAnnotationView.swift */,
@@ -144,6 +161,16 @@
 				E924DB42268C171D009E021E /* HMCARCameraViewController.xib */,
 				E9FC260126DF35EA007820E9 /* HMCFinalScoreViewController.swift */,
 				E9FC260226DF35EA007820E9 /* HMCFinalScoreViewController.xib */,
+				E99FE1AB27B89C4E00388C03 /* TimerProgressBarView.swift */,
+				E99FE1AD27B8C2C900388C03 /* ColorConstansts.swift */,
+				E96CBF6F280FC54500EAD493 /* HMCCollectionViewCell.swift */,
+				E96CBF70280FC54500EAD493 /* HMCCollectionViewCell.xib */,
+				E998BDAA2821FDAC00164B70 /* HMCScoreAndCollectionViewController.swift */,
+				E998BDAB2821FDAC00164B70 /* HMCScoreAndCollectionViewController.xib */,
+				E9AC4C5D282A0436007DEE57 /* HMCProfileViewController.swift */,
+				E9AC4C5E282A0436007DEE57 /* HMCProfileViewController.xib */,
+				E9AC4C61282B01A6007DEE57 /* HMCMapCalloutViewController.swift */,
+				E9AC4C62282B01A6007DEE57 /* HMCMapCalloutViewController.xib */,
 			);
 			path = HiddenMickeyCyberspace;
 			sourceTree = "<group>";
@@ -207,13 +234,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E998BDAD2821FDAC00164B70 /* HMCScoreAndCollectionViewController.xib in Resources */,
 				E9A26758266BE94200665698 /* HMCHomeMapViewController.xib in Resources */,
+				E96CBF72280FC54500EAD493 /* HMCCollectionViewCell.xib in Resources */,
+				E9AC4C60282A0436007DEE57 /* HMCProfileViewController.xib in Resources */,
 				E9AA7F2A266EEBD6002297D1 /* GoogleService-Info.plist in Resources */,
 				E924DB3E2687EBBA009E021E /* HMCHomeProfileDrawerViewController.xib in Resources */,
 				E9FC260426DF35EA007820E9 /* HMCFinalScoreViewController.xib in Resources */,
 				E924DB44268C171D009E021E /* HMCARCameraViewController.xib in Resources */,
 				E9A2674E266BE12300665698 /* LaunchScreen.storyboard in Resources */,
 				E9A2674B266BE12300665698 /* Assets.xcassets in Resources */,
+				E9AC4C64282B01A6007DEE57 /* HMCMapCalloutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,13 +300,16 @@
 				E924DB3D2687EBBA009E021E /* HMCHomeProfileDrawerViewController.swift in Sources */,
 				E976AB8B2672CBC600EA09F9 /* HMCModel.swift in Sources */,
 				E9A26742266BE12200665698 /* AppDelegate.swift in Sources */,
+				E9AC4C5F282A0436007DEE57 /* HMCProfileViewController.swift in Sources */,
 				E9A26744266BE12200665698 /* SceneDelegate.swift in Sources */,
 				E976AB8D2672CDF500EA09F9 /* HMCLocation.swift in Sources */,
+				E96CBF71280FC54500EAD493 /* HMCCollectionViewCell.swift in Sources */,
 				E976AB81267275F600EA09F9 /* HMCRequestHandler.swift in Sources */,
 				E956714427A5BC1C00E4D52C /* CustomAnnotationView.swift in Sources */,
+				E99FE1AE27B8C2C900388C03 /* ColorConstansts.swift in Sources */,
 				E956714627A642D800E4D52C /* HMCAnnotationView.swift in Sources */,
-				E924DB402688317C009E021E /* HMCStyles.swift in Sources */,
 				E976AB852672ADA200EA09F9 /* HMCViewController.swift in Sources */,
+				E99FE1AC27B89C4E00388C03 /* TimerProgressBarView.swift in Sources */,
 				E9A2675A266C498300665698 /* HMCMapKitExtension.swift in Sources */,
 				E956714227A512D100E4D52C /* UIColorExtensions.swift in Sources */,
 				E9A26757266BE94200665698 /* HMCHomeMapViewController.swift in Sources */,
@@ -284,6 +318,8 @@
 				E976AB892672B34700EA09F9 /* HMCHiddenMickey.swift in Sources */,
 				E956715027A6567600E4D52C /* TempGlobalVariables.swift in Sources */,
 				E976AB872672B00700EA09F9 /* HMCLocationProximityModel.swift in Sources */,
+				E998BDAC2821FDAC00164B70 /* HMCScoreAndCollectionViewController.swift in Sources */,
+				E9AC4C63282B01A6007DEE57 /* HMCMapCalloutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

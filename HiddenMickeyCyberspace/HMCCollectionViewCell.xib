@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HMCCollectionViewCellIdentifier" id="gTV-IL-0wX" customClass="HMCCollectionViewCell" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbD-bS-IdZ">
+                        <rect key="frame" x="94" y="18" width="35" height="35"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="IaM-1A-OW1"/>
+                            <constraint firstAttribute="width" constant="35" id="wfi-bM-CjL"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-EZ-cKH">
+                        <rect key="frame" x="39" y="18" width="35" height="35"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="YvD-Nf-KOv"/>
+                            <constraint firstAttribute="width" constant="35" id="qRa-i8-8zd"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rED-1e-xLS">
+                        <rect key="frame" x="59" y="38" width="50" height="50"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Ruy-VQ-HF3"/>
+                            <constraint firstAttribute="height" constant="50" id="UA9-ei-ivO"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ade-3q-Jqv">
+                        <rect key="frame" x="8" y="96" width="152" height="15.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gx2-mZ-fJc">
+                        <rect key="frame" x="60.5" y="111.5" width="47.5" height="16"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gx2-mZ-fJc" firstAttribute="top" secondItem="ade-3q-Jqv" secondAttribute="bottom" id="0ES-ZA-ps3"/>
+                <constraint firstAttribute="trailing" secondItem="ade-3q-Jqv" secondAttribute="trailing" constant="8" id="41h-TS-PVw"/>
+                <constraint firstItem="nbD-bS-IdZ" firstAttribute="leading" secondItem="rED-1e-xLS" secondAttribute="trailing" constant="-15" id="5Ia-Xn-pxK"/>
+                <constraint firstItem="rED-1e-xLS" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="HUL-0d-ijb"/>
+                <constraint firstItem="gx2-mZ-fJc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Kfm-5M-sWs"/>
+                <constraint firstItem="ade-3q-Jqv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Nee-IX-9jB"/>
+                <constraint firstItem="rED-1e-xLS" firstAttribute="leading" secondItem="a9m-EZ-cKH" secondAttribute="trailing" constant="-15" id="Nxa-fD-3nE"/>
+                <constraint firstItem="rED-1e-xLS" firstAttribute="top" secondItem="a9m-EZ-cKH" secondAttribute="bottom" constant="-15" id="ScL-X4-rdo"/>
+                <constraint firstItem="rED-1e-xLS" firstAttribute="top" secondItem="nbD-bS-IdZ" secondAttribute="bottom" constant="-15" id="V4L-8r-AqR"/>
+                <constraint firstItem="ade-3q-Jqv" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YHA-z4-phR"/>
+                <constraint firstItem="nbD-bS-IdZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="18" id="ma2-MZ-54x"/>
+                <constraint firstItem="ade-3q-Jqv" firstAttribute="top" secondItem="rED-1e-xLS" secondAttribute="bottom" constant="8" id="sJa-oO-hhG"/>
+            </constraints>
+            <connections>
+                <outlet property="headView" destination="rED-1e-xLS" id="rHc-zo-OqR"/>
+                <outlet property="highScoreLabel" destination="gx2-mZ-fJc" id="IkV-Dv-hG3"/>
+                <outlet property="leftEarView" destination="a9m-EZ-cKH" id="Gfn-HU-8Aa"/>
+                <outlet property="rideTitleLabel" destination="ade-3q-Jqv" id="m6o-De-cqo"/>
+                <outlet property="rightEarView" destination="nbD-bS-IdZ" id="0pL-il-yy4"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="126"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

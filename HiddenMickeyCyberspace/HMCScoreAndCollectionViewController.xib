@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCScoreAndCollectionViewController" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="5hm-Ah-YAu" id="MaH-Fy-NJH"/>
+                <outlet property="highScoreLabel" destination="q19-ns-Pgn" id="1U1-H2-TID"/>
+                <outlet property="overallHighScoreTitleLabel" destination="brb-OE-e48" id="oJi-tW-IEz"/>
+                <outlet property="ridesPlayedLabel" destination="XRc-TJ-BRx" id="qje-uL-0wJ"/>
+                <outlet property="ridesPlayedTitleLabel" destination="ecg-81-UvK" id="Nrq-0q-b4a"/>
+                <outlet property="ridesTitleLabel" destination="RqZ-Az-t9n" id="ysi-ES-nfx"/>
+                <outlet property="scoresTitleLabel" destination="zn7-kV-4RO" id="gwp-RY-J1O"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall High Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brb-OE-e48">
+                    <rect key="frame" x="32" y="148" width="160" height="25"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q19-ns-Pgn">
+                    <rect key="frame" x="74" y="173" width="76" height="44"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5hm-Ah-YAu">
+                    <rect key="frame" x="0.0" y="290" width="414" height="606"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hN0-J4-rS1">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqZ-Az-t9n">
+                    <rect key="frame" x="183.5" y="249" width="47" height="25"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rides Played" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecg-81-UvK">
+                    <rect key="frame" x="272" y="148" width="110" height="25"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRc-TJ-BRx">
+                    <rect key="frame" x="273" y="173" width="108" height="44"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-kV-4RO">
+                    <rect key="frame" x="108" y="60" width="198" height="88"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="64"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemCyanColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="5hm-Ah-YAu" secondAttribute="bottom" id="9ge-Zi-oGE"/>
+                <constraint firstItem="ecg-81-UvK" firstAttribute="top" secondItem="zn7-kV-4RO" secondAttribute="bottom" id="AFn-59-JWm"/>
+                <constraint firstItem="q19-ns-Pgn" firstAttribute="centerX" secondItem="brb-OE-e48" secondAttribute="centerX" id="JtV-wH-7JK"/>
+                <constraint firstItem="zn7-kV-4RO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="K36-x9-QSd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5hm-Ah-YAu" secondAttribute="trailing" id="KVR-Br-oiN"/>
+                <constraint firstItem="q19-ns-Pgn" firstAttribute="top" secondItem="brb-OE-e48" secondAttribute="bottom" id="Mjw-P8-gM7"/>
+                <constraint firstItem="RqZ-Az-t9n" firstAttribute="top" secondItem="q19-ns-Pgn" secondAttribute="bottom" constant="32" id="NsW-HB-CId"/>
+                <constraint firstItem="RqZ-Az-t9n" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PsH-3P-kpg"/>
+                <constraint firstItem="brb-OE-e48" firstAttribute="top" secondItem="zn7-kV-4RO" secondAttribute="bottom" id="Rwj-3a-6ct"/>
+                <constraint firstItem="5hm-Ah-YAu" firstAttribute="top" secondItem="RqZ-Az-t9n" secondAttribute="bottom" constant="16" id="SBG-HN-WO6"/>
+                <constraint firstItem="brb-OE-e48" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="nbh-Jt-pjY"/>
+                <constraint firstItem="XRc-TJ-BRx" firstAttribute="top" secondItem="ecg-81-UvK" secondAttribute="bottom" id="t4D-Xc-9Zl"/>
+                <constraint firstItem="zn7-kV-4RO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="tXC-hx-FlE"/>
+                <constraint firstItem="XRc-TJ-BRx" firstAttribute="centerX" secondItem="ecg-81-UvK" secondAttribute="centerX" id="vAg-Zq-y9M"/>
+                <constraint firstItem="5hm-Ah-YAu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wtG-ZC-sqt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ecg-81-UvK" secondAttribute="trailing" constant="32" id="xgV-Fd-vlQ"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="126"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

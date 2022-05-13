@@ -12,11 +12,16 @@ import Firebase
 
 class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
 
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet weak var drawerView: UIView!
+    @IBOutlet weak var centerButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     
     private var locationManager: CLLocationManager?
     private var locationProximityModel: HMCLocationProximityModel
     private var aRViewController: HMCARCameraViewController?
+    private var scoreViewController: HMCFinalScoreViewController?
     
     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 28.418706530474907, longitude: -81.58117684959575), latitudinalMeters: 10000, longitudinalMeters: 10000)
     
@@ -31,18 +36,48 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureMapView()
+        configureDrawerView()
+    }
+    
+    func configureMapView() {
         mapView.delegate = self
         mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.pointOfInterestFilter = .excludingAll
+//        Causes errors on simulator
         let mapCamera = MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: region.center.latitude, longitude: region.center.longitude), fromDistance: 500, pitch: 65, heading: 0)
         mapView.setCamera(mapCamera, animated: false)
-        mapView.addAnnotation(buzzLightyearRide)
         
-//        locationManager = CLLocationManager()
-//        locationManager?.delegate = self
-//        locationManager?.requestAlwaysAuthorization()
-//        locationManager?.startUpdatingLocation()
-//        mapView.showsUserLocation = true
+        for ride in ridesArray {
+            mapView.addAnnotation(ride.rideAnnotation)
+        }
+        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+        locationManager?.startUpdatingLocation()
+        
+        if let username = UserDefaults.standard.string(forKey: usernameKey), username == natalieCheatCode {
+            mapView.isZoomEnabled = true
+            mapView.isScrollEnabled = true
+            locationManager?.stopUpdatingLocation()
+            mapView.showsUserLocation = false
+        } else {
+            locationManager?.startUpdatingLocation()
+            mapView.showsUserLocation = true
+            mapView.isZoomEnabled = false
+            mapView.isScrollEnabled = false
+        }
+    }
+    
+    func configureDrawerView() {
+        drawerView.layer.cornerRadius = 40
+        drawerView.alpha = 0.97
+        centerButton.layer.cornerRadius = 40
+        centerButton.clipsToBounds = true
+        rightButton.tintColor = HMCButtonColor1
+        leftButton.tintColor = HMCButtonColor1
+        centerButton.backgroundColor = HMCButtonColor1
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -51,19 +86,38 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
         mapView.setCamera(mapCamera, animated: false)
     }
     
-    func showPlayNowARView(title: String?) {
+    func showPlayNowARView(ride: HMCRide?) {
         let viewController = HMCARCameraViewController()
-        if let title = title, let colors = colorMapping[title] {
-            viewController.mickeyHeadColor = colors.headColor
-            viewController.mickeyEarColor = colors.earColor
-        }
+        viewController.ride = ride
         viewController.delegate = self
         viewController.modalPresentationStyle = .fullScreen
         viewController.isModalInPresentation = false
         aRViewController = viewController
         present(viewController, animated: true, completion: nil)
     }
-
+    
+    func showMickeyCollectionView() {
+        let viewController = HMCScoreAndCollectionViewController()
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func showProfileViewController() {
+        let viewController = HMCProfileViewController()
+        viewController.delegate = self
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapRightButton(_ sender: Any) {
+        showPlayNowARView(ride: nil)
+    }
+    
+    @IBAction func didTapLeftButton(_ sender: Any) {
+        showProfileViewController()
+    }
+    
+    @IBAction func didTapCenterButton(_ sender: Any) {
+        showMickeyCollectionView()
+    }
 }
 
 //extension HMCHomeMapViewController: HMCHomeProfileDrawerViewControllerDelegate {
@@ -78,33 +132,80 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
 //}
 
 extension HMCHomeMapViewController: HMCARCameraViewControllerDelegate {
-    func didLeaveARView(score: Int) {
+    func didLeaveARView(score: Int, ride: HMCRide?) {
         aRViewController?.dismiss(animated: true, completion: {
             let viewController = HMCFinalScoreViewController()
+            viewController.delegate = self
+            viewController.ride = ride
+            viewController.score = score
             self.present(viewController, animated: true, completion: nil)
-            viewController.setScore(score: score)
+            self.scoreViewController = viewController
+        })
+    }
+}
+
+extension HMCHomeMapViewController: HMCFinalScoreViewControllerDelegate {
+    func didPressPlayAgain(ride: HMCRide?) {
+        scoreViewController?.dismiss(animated: true, completion: {
+            self.showPlayNowARView(ride: ride)
         })
     }
 }
 
 extension HMCHomeMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("select")
+        if view.annotation is MKUserLocation {
+            return
+        }
+        
+        mapView.deselectAnnotation(view.annotation, animated: true)
+        let viewController = HMCMapCalloutViewController()
+        guard let rideTitle : String = view.annotation?.title ?? "Generic", let ride = titleRideMap[rideTitle] else {
+            return
+        }
+        viewController.delegate = self
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        present(viewController, animated: true, completion: {
+            viewController.configure(ride: ride)
+        })
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("tapped")
-        if let rideTitle: String? = view.annotation?.title {
-            showPlayNowARView(title: rideTitle)
+        if let rideTitle: String? = view.annotation?.title, let ride = titleRideMap[rideTitle ?? "Generic"] {
+            showPlayNowARView(ride: ride)
         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) else {
-            print("bummer")
+        if annotation is MKUserLocation {
+            print("user location")
             return nil
         }
-        print("cool")
+        
+        guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) else {
+            return nil
+        }
+        
+        let pinImage = UIImage(named: "magic-wand")
+        let size = CGSize(width: 32, height: 32)
+        UIGraphicsBeginImageContext(size)
+        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView.image = resizedImage
+        annotationView.canShowCallout = false
         return annotationView
+    }
+}
+
+extension HMCHomeMapViewController : HMCMapCalloutViewControllerDelegate {
+    func playRide(ride: HMCRide) {
+        showPlayNowARView(ride: ride)
+    }
+}
+
+extension HMCHomeMapViewController : HMCProfileViewControllerDelegate {
+    func didUpdateUsername() {
+        self.configureMapView()
     }
 }
