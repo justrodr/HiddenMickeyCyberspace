@@ -8,7 +8,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-import Firebase
 
 class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
 
@@ -19,14 +18,14 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
     @IBOutlet weak var rightButton: UIButton!
     
     private var locationManager: CLLocationManager?
-    private var locationProximityModel: HMCLocationProximityModel
     private var aRViewController: HMCARCameraViewController?
     private var scoreViewController: HMCFinalScoreViewController?
+    private var hasShownLocationErrorMessage: Bool = false
+    private var rideMapAnnotations: [HMCPlace] = []
     
     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 28.418706530474907, longitude: -81.58117684959575), latitudinalMeters: 10000, longitudinalMeters: 10000)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        locationProximityModel = HMCLocationProximityModel()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -38,6 +37,20 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         configureMapView()
         configureDrawerView()
+        
+        let requestHandler = HMCRequestHandler()
+        requestHandler.readParkLocationData { parks in
+            disneyParkLocationsArray = parks
+            requestHandler.readRides { rides in
+                ridesArray = rides
+                var newRidesTitleMap : [String : HMCRide] = [:]
+                for ride in rides {
+                    newRidesTitleMap[ride.rideID] = ride
+                }
+                titleRideMap = newRidesTitleMap
+                self.configureMapView()
+            }
+        }
     }
     
     func configureMapView() {
@@ -48,16 +61,21 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
         let mapCamera = MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: region.center.latitude, longitude: region.center.longitude), fromDistance: 500, pitch: 65, heading: 0)
         mapView.setCamera(mapCamera, animated: false)
         
+        mapView.removeAnnotations(rideMapAnnotations)
+        var rideAnnotations: [HMCPlace] = []
         for ride in ridesArray {
+            rideAnnotations.append(ride.rideAnnotation)
             mapView.addAnnotation(ride.rideAnnotation)
         }
+        rideMapAnnotations = rideAnnotations
+        
         
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
         
-        if let username = UserDefaults.standard.string(forKey: usernameKey), username == natalieCheatCode {
+        if let username = UserDefaults.standard.string(forKey: usernameKey), username == natalieCheatCode || username == testerCheatCode {
             mapView.isZoomEnabled = true
             mapView.isScrollEnabled = true
             locationManager?.stopUpdatingLocation()
@@ -84,6 +102,23 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
         guard let currentLocation = locations.last else { return }
         let mapCamera = MKMapCamera(lookingAtCenter: currentLocation.coordinate, fromDistance: 500, pitch: 65, heading: 0)
         mapView.setCamera(mapCamera, animated: false)
+        
+        if !userIsNearDisneyPark(currentLocation: currentLocation.coordinate) && hasShownLocationErrorMessage == false {
+            hasShownLocationErrorMessage = true
+            let alert = UIAlertController(title: "Looks like you're not in a Disney park", message: "You'll be able to collect hidden Mickeys once you're in a park. For now, you can play in quick play mode using the play button on the right.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func userIsNearDisneyPark(currentLocation: CLLocationCoordinate2D) -> Bool {
+        var isNear: Bool = false
+        for park in disneyParkLocationsArray {
+            if distance(from: currentLocation, to: park.centerLocation) <= park.radius {
+                isNear = true
+            }
+        }
+        return isNear
     }
     
     func showPlayNowARView(ride: HMCRide?) {
@@ -117,6 +152,12 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
     
     @IBAction func didTapCenterButton(_ sender: Any) {
         showMickeyCollectionView()
+    }
+    
+    func distance(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> CLLocationDistance {
+        let from = CLLocation(latitude: from.latitude, longitude: from.longitude)
+        let to = CLLocation(latitude: to.latitude, longitude: to.longitude)
+        return from.distance(from: to)
     }
 }
 
@@ -179,7 +220,7 @@ extension HMCHomeMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
-            print("user location")
+            print("UUUuser location")
             return nil
         }
         

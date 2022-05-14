@@ -11,9 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCProfileViewController" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
             <connections>
-                <outlet property="clearLocalDataButton" destination="7yX-JV-vLw" id="SCX-fx-nmC"/>
+                <outlet property="clearLocalDataButton" destination="4hh-uh-XpE" id="Ghc-1Q-SD7"/>
                 <outlet property="profileImage" destination="MPh-PW-SzP" id="l3w-Tx-EJg"/>
-                <outlet property="unlockRidesButton" destination="4hh-uh-XpE" id="U8J-FW-dFG"/>
+                <outlet property="unlockRidesButton" destination="7yX-JV-vLw" id="IJL-q5-cxr"/>
                 <outlet property="usernameTextfield" destination="P7k-HP-EUG" id="KxL-ae-KpI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -41,11 +41,11 @@
                         <constraint firstAttribute="height" constant="100" id="D1F-lI-R8t"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Unlock all rides">
+                    <buttonConfiguration key="configuration" style="plain" title="Clear local data">
                         <fontDescription key="titleFontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
                     </buttonConfiguration>
                     <connections>
-                        <action selector="didPressUnlockRidesButton:" destination="-1" eventType="touchUpInside" id="L1n-wd-2ct"/>
+                        <action selector="didPressClearLocalData:" destination="-1" eventType="touchUpInside" id="4Uw-al-wlS"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-JV-vLw">
@@ -54,11 +54,11 @@
                         <constraint firstAttribute="height" constant="100" id="M75-7J-EqZ"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Clear local data">
+                    <buttonConfiguration key="configuration" style="plain" title="Unlock all rides">
                         <fontDescription key="titleFontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
                     </buttonConfiguration>
                     <connections>
-                        <action selector="didPressClearLocalData:" destination="-1" eventType="touchUpInside" id="XGg-Us-jDz"/>
+                        <action selector="didPressUnlockRidesButton:" destination="-1" eventType="touchUpInside" id="Te5-X5-4H6"/>
                     </connections>
                 </button>
             </subviews>

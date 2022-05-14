@@ -20,7 +20,6 @@
 		E96CBF72280FC54500EAD493 /* HMCCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96CBF70280FC54500EAD493 /* HMCCollectionViewCell.xib */; };
 		E976AB81267275F600EA09F9 /* HMCRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */; };
 		E976AB852672ADA200EA09F9 /* HMCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB842672ADA200EA09F9 /* HMCViewController.swift */; };
-		E976AB872672B00700EA09F9 /* HMCLocationProximityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */; };
 		E976AB892672B34700EA09F9 /* HMCHiddenMickey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */; };
 		E976AB8B2672CBC600EA09F9 /* HMCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB8A2672CBC600EA09F9 /* HMCModel.swift */; };
 		E976AB8D2672CDF500EA09F9 /* HMCLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */; };
@@ -59,7 +58,6 @@
 		E96CBF70280FC54500EAD493 /* HMCCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HMCCollectionViewCell.xib; sourceTree = "<group>"; };
 		E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCRequestHandler.swift; sourceTree = "<group>"; };
 		E976AB842672ADA200EA09F9 /* HMCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCViewController.swift; sourceTree = "<group>"; };
-		E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCLocationProximityModel.swift; sourceTree = "<group>"; };
 		E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCHiddenMickey.swift; sourceTree = "<group>"; };
 		E976AB8A2672CBC600EA09F9 /* HMCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCModel.swift; sourceTree = "<group>"; };
 		E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMCLocation.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				E9AA7F29266EEBD6002297D1 /* GoogleService-Info.plist */,
 				E976AB80267275F600EA09F9 /* HMCRequestHandler.swift */,
 				E976AB842672ADA200EA09F9 /* HMCViewController.swift */,
-				E976AB862672B00700EA09F9 /* HMCLocationProximityModel.swift */,
 				E976AB882672B34700EA09F9 /* HMCHiddenMickey.swift */,
 				E976AB8A2672CBC600EA09F9 /* HMCModel.swift */,
 				E976AB8C2672CDF500EA09F9 /* HMCLocation.swift */,
@@ -317,7 +314,6 @@
 				E9FC260326DF35EA007820E9 /* HMCFinalScoreViewController.swift in Sources */,
 				E976AB892672B34700EA09F9 /* HMCHiddenMickey.swift in Sources */,
 				E956715027A6567600E4D52C /* TempGlobalVariables.swift in Sources */,
-				E976AB872672B00700EA09F9 /* HMCLocationProximityModel.swift in Sources */,
 				E998BDAC2821FDAC00164B70 /* HMCScoreAndCollectionViewController.swift in Sources */,
 				E9AC4C63282B01A6007DEE57 /* HMCMapCalloutViewController.swift in Sources */,
 			);

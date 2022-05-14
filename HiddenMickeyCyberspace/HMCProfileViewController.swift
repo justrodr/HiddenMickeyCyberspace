@@ -22,7 +22,15 @@ class HMCProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let requestHandler = HMCRequestHandler()
         self.view.backgroundColor = HMCBackgroundColor1
+        unlockRidesButton.isHidden = true
+        requestHandler.readProfileTabConfig {
+            if isUnlockButtonEnabled == true {
+                self.unlockRidesButton.isHidden = false
+            }
+        }
+        
         configureButton(title: "Clear local data", button: clearLocalDataButton)
         configureButton(title: "Unlock all rides", button: unlockRidesButton)
         usernameTextfield.textColor = HMCTextColor1
@@ -53,7 +61,12 @@ class HMCProfileViewController: UIViewController {
     }
     
     @IBAction func didPressUnlockRidesButton(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: hasOptedInToFakePurchaseKey)
+        let alert = UIAlertController(title: unlockRidesAlertMessage, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: unlockRidesAlertButton, style: .default, handler: { action in
+            UserDefaults.standard.set(true, forKey: hasOptedInToFakePurchaseKey)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

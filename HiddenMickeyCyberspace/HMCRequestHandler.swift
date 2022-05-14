@@ -12,46 +12,107 @@ import CoreLocation
 class HMCRequestHandler {
     
     private static let ref = Database.database(url: "https://hiddenmickeycyberspace-default-rtdb.firebaseio.com/").reference()
+
+    func writeRides() {
+        for ride in ridesArray {
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("title").setValue(ride.title)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("latitude").setValue(ride.rideAnnotation.coordinate.latitude)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("longitude").setValue(ride.rideAnnotation.coordinate.longitude)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("earColor").setValue(ride.colors.earColor.hexString)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("headColor").setValue(ride.colors.headColor.hexString)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("earBorderColor").setValue(ride.colors.earBorderColor?.hexString)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("headBorderColor").setValue(ride.colors.headBorderColor?.hexString)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("highScore").setValue(ride.highScore)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("isPremiumRide").setValue(ride.isPremiumRide)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("park").setValue(ride.park)
+        }
+    }
     
-    func getParkAndRideLocationInformation() {
-        var parkLocations: [HMCParkLocation] = []
-        HMCRequestHandler.ref.child("locations").observe(.childAdded) { (snapshot) in
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            guard let parkName = postDict["parkName"] as? String,
-                  let parkID = postDict["parkID"] as? String,
-                  let centerPointLat = postDict["centerPointLat"] as? CLLocationDegrees,
-                  let centerPointLon = postDict["centerPointLon"] as? CLLocationDegrees,
-                  let radius = postDict["radius"] as? Int else {
-                return
+    func readRides(completion: @escaping ([HMCRide])->Void) {
+        var newRidesArray: [HMCRide] = []
+        DispatchQueue.global(qos: .background).async {
+            HMCRequestHandler.ref.child("rides").observeSingleEvent(of: .value) { (snapshot) in
+                for case let child as DataSnapshot in snapshot.children {
+                    if let rideDict = child.value as? [String: AnyObject] {
+                        guard let title = rideDict["title"] as? String,
+                              let latitude = rideDict["latitude"] as? CGFloat,
+                              let longitude = rideDict["longitude"] as? CGFloat,
+                              let earColor = rideDict["earColor"] as? String,
+                              let headColor = rideDict["headColor"] as? String,
+                              let earBorderColor = rideDict["earBorderColor"] as? String?,
+                              let headBorderColor = rideDict["headBorderColor"] as? String?,
+                              let isPremiumRide = rideDict["isPremiumRide"] as? Bool,
+                              let park = rideDict["park"] as? String else {
+                            return
+                        }
+                        
+                        guard let uiHeadColor = UIColor(hex: headColor),
+                              let uiEarColor = UIColor(hex: earColor) else {
+                            return
+                        }
+                        let ride = HMCRide(title: title,
+                                           coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                                           isPremiumRide: isPremiumRide,
+                                           park: park,
+                                           headColor: uiHeadColor,
+                                           earColor: uiEarColor,
+                                           headBorderColor: UIColor(hex: headBorderColor ?? ""),
+                                           earBorderColor: UIColor(hex: earBorderColor ?? ""))
+                        newRidesArray.append(ride)
+                    }
+                }
+                completion(newRidesArray)
             }
-            let newParkLocation = HMCParkLocation(parkName: parkName, parkID: parkID, centerPoint: CLLocationCoordinate2D(latitude: centerPointLat, longitude: centerPointLon), radius: radius)
-            parkLocations.append(newParkLocation)
         }
-        
     }
     
-    func setParkAndRideLocationInformation() {
-        let disneylandCaliforniaLocation = HMCParkLocation(parkName: "Disneyland", parkID: "disneylandCalifornia", centerPoint: CLLocationCoordinate2D(latitude: 33.8121, longitude:-117.9190), radius: 10)
-        let splashMountainDisneylandCaliforniaLocation = HMCAttractionLocation(attractionName: "Splash Mountain Disneyland California", attractionID: "splashMountainDisneylandCalifornia", centerPoint: CLLocationCoordinate2D(latitude: 33.812204, longitude: -117.922804), radius: 2)
-        disneylandCaliforniaLocation.attractions.append(splashMountainDisneylandCaliforniaLocation)
-        
-        setLocationData(parkLocation: disneylandCaliforniaLocation)
+    func writeParkLocationData() {
+        for park in disneyParkLocationsArray {
+            HMCRequestHandler.ref.child("parks").child(park.id).child("id").setValue(park.id)
+            HMCRequestHandler.ref.child("parks").child(park.id).child("latitude").setValue(park.centerLocation.latitude)
+            HMCRequestHandler.ref.child("parks").child(park.id).child("longitude").setValue(park.centerLocation.longitude)
+            HMCRequestHandler.ref.child("parks").child(park.id).child("radius").setValue(park.radius)
+            
+        }
     }
     
-    func setLocationData(parkLocation: HMCParkLocation) {
-        HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("parkName").setValue(parkLocation.parkName)
-        HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("parkID").setValue(parkLocation.parkID)
-        HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("centerPointLat").setValue(parkLocation.centerPoint.latitude)
-        HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("centerPointLon").setValue(parkLocation.centerPoint.longitude)
-        HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("radius").setValue(parkLocation.radius)
-        
-        for attraction in parkLocation.attractions {
-            HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("attractions").child(attraction.attractionID).child("attractionName").setValue(attraction.attractionName)
-            HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("attractions").child(attraction.attractionID).child("attractionID").setValue(attraction.attractionID)
-            HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("attractions").child(attraction.attractionID).child("centerPointLat").setValue(attraction.centerPoint.latitude)
-            HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("attractions").child(attraction.attractionID).child("centerPointLon").setValue(attraction.centerPoint.longitude)
-            HMCRequestHandler.ref.child("locations").child(parkLocation.parkID).child("attractions").child(attraction.attractionID).child("radius").setValue(attraction.radius)
+    func readParkLocationData(completion: @escaping ([HMCDisneyPark])->Void) {
+        var parks: [HMCDisneyPark] = []
+        DispatchQueue.global(qos: .background).async {
+            HMCRequestHandler.ref.child("parks").observeSingleEvent(of: .value) { (snapshot) in
+                for case let child as DataSnapshot in snapshot.children {
+                    if let parkDict = child.value as? [String: AnyObject] {
+                        guard let id = parkDict["id"] as? String,
+                              let latitude = parkDict["latitude"] as? CGFloat,
+                              let longitude = parkDict["longitude"] as? CGFloat,
+                              let radius = parkDict["radius"] as? CGFloat else {
+                            return
+                        }
+                        
+                        let park = HMCDisneyPark(id: id, centerLocation: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius: radius)
+                        parks.append(park)
+                    }
+                }
+                completion(parks)
+            }
         }
-        
+    }
+    
+    func readProfileTabConfig(completion : @escaping ()->Void) {
+        DispatchQueue.global(qos: .background).async {
+            HMCRequestHandler.ref.child("config").observeSingleEvent(of: .value) { snapshot in
+                if let configDict = snapshot.value as? [String : AnyObject] {
+                    guard let isUnlockButtonEnabledRead = configDict["isUnlockButtonEnabled"] as? Bool,
+                          let unlockRidesAlertButtonRead = configDict["unlockRidesAlertButton"] as? String,
+                          let unlockRidesAlertMessageRead = configDict["unlockRidesAlertMessage"] as? String else {
+                        return
+                    }
+                    isUnlockButtonEnabled = isUnlockButtonEnabledRead
+                    unlockRidesAlertButton = unlockRidesAlertButtonRead
+                    unlockRidesAlertMessage = unlockRidesAlertMessageRead
+                    completion()
+                }
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ class HMCARCameraViewController: UIViewController {
     private let hiddenMickeyPlacementRadius: CGFloat = 3
     private let hiddenMickeySize: CGFloat = 0.2
     private let thresholdDistance: Float = 0.5
-    private let earDisplacementFactor = 0.9
+    private let earDisplacementFactor = 1.1
     private let earSizeProportion = 0.7
     private var score: Int = 0
     private let hideDistanceLabel: Bool = true
