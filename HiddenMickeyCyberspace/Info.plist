@@ -17,17 +17,17 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Test description</string>
+	<string>Find My Mickeys is an Augmented Reality game that uses your devices camera to find hidden Mickeys.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Test message</string>
+	<string>Enable location usage in order to play Find My Mickeys while in line for rides.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Test Description</string>
+	<string>Enable location usage in order to play Find My Mickeys while in line for rides.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
