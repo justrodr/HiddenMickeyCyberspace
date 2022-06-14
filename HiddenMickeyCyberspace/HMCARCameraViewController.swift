@@ -25,13 +25,14 @@ class HMCARCameraViewController: UIViewController {
     @IBOutlet weak var scoreContainerView: UIView!
     @IBOutlet weak var timerProgressBarView: TimerProgressBarView!
     
-    private let hiddenMickeyPlacementRadius: CGFloat = 3
-    private let hiddenMickeySize: CGFloat = 0.2
+    private let hiddenMickeyPlacementRadius: CGFloat = 2
+    private let hiddenMickeySize: CGFloat = 0.5
     private let thresholdDistance: Float = 0.5
     private let earDisplacementFactor = 1.1
     private let earSizeProportion = 0.7
     private var score: Int = 0
     private let hideDistanceLabel: Bool = true
+    private let spinDuration: CGFloat = 2
     weak var delegate: HMCARCameraViewControllerDelegate?
     var ride: HMCRide?
 //    var mickeyHeadColor: UIColor = .blue
@@ -80,6 +81,7 @@ class HMCARCameraViewController: UIViewController {
         sceneView.addGestureRecognizer(tapGestureRecognizer)
         
         placeRandomHiddenMickeys()
+//        generateHiddenMickeyShape(center: (0,0,0), size: hiddenMickeySize, headColor: HMCNavy, earColor: HMCNavy)
     }
     
     @objc func updateCounter() {
@@ -99,50 +101,59 @@ class HMCARCameraViewController: UIViewController {
         }
         
         for center in hiddenMickeyCenterPoints {
-            generateHiddenMickeyShape(center: center, size: hiddenMickeySize, headColor: ride?.colors.headColor ?? HMCBlue, earColor: ride?.colors.earColor ?? HMCBlue)
+            generateHiddenMickeyShape(center: center, size: hiddenMickeySize, headColor: ride?.colors.headColor ?? HMCNavy, earColor: ride?.colors.earColor ?? HMCBlue)
         }
         
     }
     
     func generateHiddenMickeyShape(center: (CGFloat, CGFloat, CGFloat), size: CGFloat, headColor: UIColor, earColor: UIColor) {
         
-        let headColorShadow = headColor.darker(by: 70)
-        let earColorShadow = earColor.darker(by: 70)
-        let headNode = SCNNode()
-        let ear1Node = SCNNode()
-        let ear2Node = SCNNode()
-        let head = SCNSphere(radius: size)
-        let ear1 = SCNSphere(radius: size * earSizeProportion)
-        let ear2 = SCNSphere(radius: size * earSizeProportion)
-        
-        
-        headNode.geometry = head
-        headNode.geometry?.firstMaterial?.specular.contents = headColorShadow
-        headNode.geometry?.firstMaterial?.diffuse.contents = headColor
-        
-        ear1Node.geometry = ear1
-        ear1Node.geometry?.firstMaterial?.specular.contents = earColorShadow
-        ear1Node.geometry?.firstMaterial?.diffuse.contents = earColor
-        
-        ear2Node.geometry = ear2
-        ear2Node.geometry?.firstMaterial?.specular.contents = earColorShadow
-        ear2Node.geometry?.firstMaterial?.diffuse.contents = earColor
-        
-        headNode.position = SCNVector3(center.0, center.1, center.2)
-        ear1Node.position = SCNVector3(-(size * earDisplacementFactor), (size * earDisplacementFactor), 0)
-        ear2Node.position = SCNVector3((size * earDisplacementFactor), (size * earDisplacementFactor), 0)
-        
-        headNode.addChildNode(ear1Node)
-        headNode.addChildNode(ear2Node)
-        self.sceneView.scene.rootNode.addChildNode(headNode)
-        
-        headNode.name = "head"
-        ear1Node.name = "ear1"
-        ear2Node.name = "ear2"
-        
         self.sceneView.scene.rootNode.name = "root"
-//        self.sceneView.scene.rootNode.addChildNode(ear1Node)
-//        self.sceneView.scene.rootNode.addChildNode(ear2Node)
+        
+        let eggTopPath = UIBezierPath()
+        eggTopPath.move(to: .zero)
+        eggTopPath.addCurve(to: CGPoint(x: 1 * size, y: 0), controlPoint1: CGPoint(x: 0.2 * size, y: 1.2 * size), controlPoint2: CGPoint(x: 0.8 * size, y: 1.2 * size))
+        eggTopPath.close()
+        eggTopPath.fill()
+        eggTopPath.flatness = 0.001
+        let eggBottomPath = UIBezierPath()
+        eggBottomPath.addArc(withCenter: CGPoint(x: 0.5 * size, y: 0), radius: 0.5 * size, startAngle: .pi, endAngle: 0, clockwise: true)
+        eggBottomPath.close()
+        eggBottomPath.fill()
+        eggBottomPath.flatness = 0.001
+        
+        let eggTopShape = SCNShape(path: eggTopPath, extrusionDepth: 0.05)
+        let eggTopNode = SCNNode()
+        eggTopNode.geometry = eggTopShape
+        eggTopNode.geometry?.firstMaterial?.specular.contents = earColor.darker(by:70)
+        eggTopNode.geometry?.firstMaterial?.diffuse.contents = earColor
+        eggTopNode.position = SCNVector3(center.0, center.1, center.2)
+        eggTopNode.name = "eggTopNode"
+        
+        let eggBottomShape = SCNShape(path: eggBottomPath, extrusionDepth: 0.05)
+        let eggBottomNode = SCNNode()
+        eggBottomNode.geometry = eggBottomShape
+        eggBottomNode.geometry?.firstMaterial?.specular.contents = headColor.darker(by:70)
+        eggBottomNode.geometry?.firstMaterial?.diffuse.contents = headColor
+        eggBottomNode.position = SCNVector3(center.0, center.1, center.2)
+        eggBottomNode.name = "eggBottomNode"
+        
+        let eggParentNode = SCNNode()
+        eggParentNode.name = "eggParentNode"
+        eggParentNode.position = SCNVector3(center.0, center.1, center.2)
+        
+        eggParentNode.addChildNode(eggTopNode)
+        eggParentNode.addChildNode(eggBottomNode)
+        
+        let minimum = float3(eggParentNode.boundingBox.min)
+        let maximum = float3(eggParentNode.boundingBox.max)
+        let translation = (maximum + minimum) * 0.5
+        eggParentNode.pivot = SCNMatrix4MakeTranslation(translation.x, translation.y, translation.z)
+        
+        let action = SCNAction.repeatForever(SCNAction.rotate(by: .pi, around: SCNVector3(0, 1, 0), duration: spinDuration))
+        eggParentNode.runAction(action)
+        
+        self.sceneView.scene.rootNode.addChildNode(eggParentNode)
     }
     
     func randomNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
@@ -157,22 +168,21 @@ class HMCARCameraViewController: UIViewController {
 
         if results.count == 1 {
             let node = results[0].node
-            if node.name == "head" || node.name == "ear1" || node.name == "ear2" {
+            if node.name == "eggTopNode" || node.name == "eggBottomNode" || node.name == "eggParentNode" {
                 score += 1
                 scoreLabel.text = String(score)
             }
-            node.enumerateChildNodes { (earNode, stop) in
-                earNode.removeFromParentNode()
-            }
-            if node.parent?.name == "head" {
-                guard let headNode = node.parent else {
+            
+            if node.parent?.name == "eggParentNode" {
+                guard let parentNode = node.parent else {
                     return
                 }
-                headNode.enumerateChildNodes { (earNode, stop) in
-                    earNode.removeFromParentNode()
+                parentNode.enumerateChildNodes { (childNode, stop) in
+                    childNode.removeFromParentNode()
                 }
-                headNode.removeFromParentNode()
+                parentNode.removeFromParentNode()
             }
+            
             node.removeFromParentNode()
         }
     }

@@ -9,9 +9,7 @@ import UIKit
 
 class HMCCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var leftEarView: UIView!
-    @IBOutlet weak var rightEarView: UIView!
-    @IBOutlet weak var headView: UIView!
+    @IBOutlet weak var eggImageView: UIImageView!
     @IBOutlet weak var rideTitleLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     
@@ -21,12 +19,6 @@ class HMCCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.backgroundColor = HMCCardBackgroundColor1
         self.layer.cornerRadius = 32
-        self.rightEarView.layer.cornerRadius = 35/2
-        self.leftEarView.layer.cornerRadius = 35/2
-        self.headView.layer.cornerRadius = 25
-        rightEarView.backgroundColor = .clear
-        leftEarView.backgroundColor = .clear
-        headView.backgroundColor = .clear
         rideTitleLabel.textColor = HMCTextColor2
         highScoreLabel.textColor = HMCTextColor2
     }
@@ -40,19 +32,14 @@ class HMCCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(ride: HMCRide) {
-        rightEarView.backgroundColor = ride.colors.earColor
-        leftEarView.backgroundColor = ride.colors.earColor
-        headView.backgroundColor = ride.colors.headColor
-        if let earBorderColor = ride.colors.earBorderColor {
-            leftEarView.layer.borderWidth = 3
-            leftEarView.layer.borderColor = earBorderColor.cgColor
-            rightEarView.layer.borderWidth = 3
-            rightEarView.layer.borderColor = earBorderColor.cgColor
+        
+        guard var image = eggImageView.image else {
+            return
         }
-        if let headBorderColor = ride.colors.headBorderColor {
-            headView.layer.borderWidth = 3
-            headView.layer.borderColor = headBorderColor.cgColor
-        }
+        
+        image = withHalfOverlayColor(myImage: image, color: ride.colors.headColor, isBottom: true)
+        eggImageView.image = withHalfOverlayColor(myImage: image, color: ride.colors.earColor, isBottom: false)
+        
         rideTitleLabel.text = "\(ride.title) \(ride.park)"
         if ride.highScore > 0 {
             highScoreLabel.text = "High Score: \(ride.highScore)"
@@ -69,5 +56,31 @@ class HMCCollectionViewCell: UICollectionViewCell {
             self.shadeView = shadeView
         }
     }
+    
+    func withHalfOverlayColor(myImage: UIImage, color: UIColor, isBottom: Bool) -> UIImage
+      {
+        let rect = CGRect(x: 0, y: 0, width: myImage.size.width, height: myImage.size.height)
+
+
+        UIGraphicsBeginImageContextWithOptions(myImage.size, false, myImage.scale)
+        myImage.draw(in: rect)
+
+        let context = UIGraphicsGetCurrentContext()!
+        context.setBlendMode(CGBlendMode.sourceIn)
+
+        context.setFillColor(color.cgColor)
+          
+        let rectToFill = CGRect(x: 0,
+                                y: isBottom ? myImage.size.height*0.6 : 0,
+                                width: myImage.size.width,
+                                height: isBottom ? myImage.size.height*0.4 : myImage.size.height*0.6)
+        context.fill(rectToFill)
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
+      }
 
 }
+    

@@ -51,6 +51,7 @@ class HMCFinalScoreViewController: UIViewController {
         
         setScore()
         setRidesPlayed()
+        
     }
     
     func setScore() {

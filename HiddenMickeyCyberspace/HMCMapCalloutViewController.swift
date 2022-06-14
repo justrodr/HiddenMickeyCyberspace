@@ -13,10 +13,8 @@ protocol HMCMapCalloutViewControllerDelegate {
 
 class HMCMapCalloutViewController: UIViewController {
 
+    @IBOutlet weak var eggImageView: UIImageView!
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var leftEarView: UIView!
-    @IBOutlet weak var rightEarView: UIView!
-    @IBOutlet weak var headView: UIView!
     @IBOutlet weak var rideTitleLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
@@ -26,12 +24,10 @@ class HMCMapCalloutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        eggImageView.isHidden = true
         self.view.backgroundColor = HMCBackgroundColor2.withAlphaComponent(0.5)
         self.cardView.layer.cornerRadius = 25
-        self.leftEarView.layer.cornerRadius = leftEarView.frame.height / 2
-        self.rightEarView.layer.cornerRadius = rightEarView.frame.height / 2
-        self.headView.layer.cornerRadius = headView.frame.height / 2
         let attributedButtonTitle = NSAttributedString(string: "Play",
                                                        attributes: [NSAttributedString.Key.foregroundColor : HMCTextColor2, NSAttributedString.Key.font : UIFont(name: "Avenir Black", size: 24)])
         playButton.setAttributedTitle(attributedButtonTitle, for: .normal)
@@ -45,19 +41,14 @@ class HMCMapCalloutViewController: UIViewController {
     
     func configure(ride: HMCRide) {
         self.ride = ride
-        leftEarView.backgroundColor = ride.colors.earColor
-        rightEarView.backgroundColor = ride.colors.earColor
-        if let earBorderColor = ride.colors.earBorderColor {
-            leftEarView.layer.borderWidth = 3
-            leftEarView.layer.borderColor = earBorderColor.cgColor
-            rightEarView.layer.borderWidth = 3
-            rightEarView.layer.borderColor = earBorderColor.cgColor
+        
+        guard var image = eggImageView.image else {
+            return
         }
-        headView.backgroundColor = ride.colors.headColor
-        if let headBorderColor = ride.colors.headBorderColor {
-            headView.layer.borderWidth = 3
-            headView.layer.borderColor = headBorderColor.cgColor
-        }
+        
+        image = withHalfOverlayColor(myImage: image, color: ride.colors.headColor, isBottom: true)
+        eggImageView.image = withHalfOverlayColor(myImage: image, color: ride.colors.earColor, isBottom: false)
+        eggImageView.isHidden = false
         
         rideTitleLabel.text = ride.title
         highScoreLabel.text = "High Score: \(ride.highScore <= 0 ? "-" : String(ride.highScore))"
@@ -67,13 +58,9 @@ class HMCMapCalloutViewController: UIViewController {
             playButton.setAttributedTitle(attributedButtonTitle, for: .normal)
         }
         isModalEnabled(isHidden: false)
-        headView.superview?.bringSubviewToFront(headView)
     }
     
     func isModalEnabled(isHidden: Bool) {
-        leftEarView.isHidden = isHidden
-        rightEarView.isHidden = isHidden
-        headView.isHidden = isHidden
         rideTitleLabel.isHidden = isHidden
         highScoreLabel.isHidden = isHidden
         playButton.isHidden = isHidden
@@ -90,3 +77,28 @@ class HMCMapCalloutViewController: UIViewController {
         }
     }
 }
+
+func withHalfOverlayColor(myImage: UIImage, color: UIColor, isBottom: Bool) -> UIImage
+  {
+    let rect = CGRect(x: 0, y: 0, width: myImage.size.width, height: myImage.size.height)
+
+
+    UIGraphicsBeginImageContextWithOptions(myImage.size, false, myImage.scale)
+    myImage.draw(in: rect)
+
+    let context = UIGraphicsGetCurrentContext()!
+    context.setBlendMode(CGBlendMode.sourceIn)
+
+    context.setFillColor(color.cgColor)
+      
+    let rectToFill = CGRect(x: 0,
+                            y: isBottom ? myImage.size.height*0.6 : 0,
+                            width: myImage.size.width,
+                            height: isBottom ? myImage.size.height*0.4 : myImage.size.height*0.6)
+    context.fill(rectToFill)
+
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+
+    return newImage!
+  }
