@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Find My Mickeys</string>
+	<string>Find My Magic</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,11 +23,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Find My Mickeys is an Augmented Reality game that uses your devices camera to find hidden Mickeys.</string>
+	<string>Find My Magic is an Augmented Reality game that uses your devices camera to find hidden Easter eggs.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Enable location usage in order to play Find My Mickeys while in line for rides.</string>
+	<string>Enable location usage in order to play Find My Magic while in line for rides.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Enable location usage in order to play Find My Mickeys while in line for rides.</string>
+	<string>Enable location usage in order to play Find My Magic while in line for rides.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

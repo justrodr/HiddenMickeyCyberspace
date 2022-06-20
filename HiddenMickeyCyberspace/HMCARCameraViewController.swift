@@ -19,10 +19,8 @@ class HMCARCameraViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var leaveButton: UIButton!
-    @IBOutlet weak var mickeyHeadView: UIView!
-    @IBOutlet weak var mickeyHeadRightEarView: UIView!
-    @IBOutlet weak var mickeyHeadLeftEarView: UIView!
     @IBOutlet weak var scoreContainerView: UIView!
+    @IBOutlet weak var eggImageView: UIImageView!
     @IBOutlet weak var timerProgressBarView: TimerProgressBarView!
     
     private let hiddenMickeyPlacementRadius: CGFloat = 2
@@ -55,24 +53,14 @@ class HMCARCameraViewController: UIViewController {
         if let ride = ride {
             scoreLabel.textColor = ride.colors.headColor
         }
+        
+        if var image = eggImageView.image {
+            image = withHalfOverlayColor(myImage: image, color: ride?.colors.headColor ?? HMCNavy, isBottom: true)
+            eggImageView.image = withHalfOverlayColor(myImage: image, color: ride?.colors.earColor ?? HMCBlue, isBottom: false)
+        }
+        
         leaveButton.layer.cornerRadius = 8
         scoreContainerView.layer.cornerRadius = 50
-        mickeyHeadView.layer.cornerRadius = mickeyHeadView.frame.height / 2
-        mickeyHeadLeftEarView.layer.cornerRadius = mickeyHeadLeftEarView.frame.height / 2
-        mickeyHeadRightEarView.layer.cornerRadius = mickeyHeadRightEarView.frame.height / 2
-        mickeyHeadView.backgroundColor = ride?.colors.headColor ?? HMCBlue
-        mickeyHeadLeftEarView.backgroundColor = ride?.colors.earColor ?? HMCBlue
-        mickeyHeadRightEarView.backgroundColor = ride?.colors.earColor ?? HMCBlue
-        if let earBorderColor = ride?.colors.earBorderColor {
-            mickeyHeadLeftEarView.layer.borderWidth = 3
-            mickeyHeadLeftEarView.layer.borderColor = earBorderColor.cgColor
-            mickeyHeadRightEarView.layer.borderWidth = 3
-            mickeyHeadRightEarView.layer.borderColor = earBorderColor.cgColor
-        }
-        if let headBorderColor = ride?.colors.headBorderColor {
-            mickeyHeadView.layer.borderWidth = 3
-            mickeyHeadView.layer.borderColor = headBorderColor.cgColor
-        }
         timerProgressBarView.setupView()
         timerProgressBarView.animateBar()
         distanceLabel.isHidden = hideDistanceLabel

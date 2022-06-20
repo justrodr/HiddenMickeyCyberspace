@@ -79,26 +79,26 @@ class HMCMapCalloutViewController: UIViewController {
 }
 
 func withHalfOverlayColor(myImage: UIImage, color: UIColor, isBottom: Bool) -> UIImage
-  {
+{
     let rect = CGRect(x: 0, y: 0, width: myImage.size.width, height: myImage.size.height)
-
-
+    
+    
     UIGraphicsBeginImageContextWithOptions(myImage.size, false, myImage.scale)
     myImage.draw(in: rect)
-
+    
     let context = UIGraphicsGetCurrentContext()!
     context.setBlendMode(CGBlendMode.sourceIn)
-
+    
     context.setFillColor(color.cgColor)
-      
+    
     let rectToFill = CGRect(x: 0,
                             y: isBottom ? myImage.size.height*0.6 : 0,
                             width: myImage.size.width,
                             height: isBottom ? myImage.size.height*0.4 : myImage.size.height*0.6)
     context.fill(rectToFill)
-
+    
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-
+    
     return newImage!
-  }
+}

@@ -57,20 +57,30 @@ class HMCFinalScoreViewController: UIViewController {
     func setScore() {
         scoreLabel?.text = String(score)
         let totalHighScore = UserDefaults.standard.integer(forKey: totalHighScoreKey)
+        if let ride = ride {
+            if ride.highScore < score {
+                highScoreLabel?.text = String(score)
+                highScoreTitleLabel?.text = "New High Score!"
+                ride.setNewHighScore(score: score)
+            } else {
+                highScoreTitleLabel?.text = "High Score"
+                if ride.highScore > 0 {
+                    highScoreLabel?.text = String(ride.highScore)
+                } else {
+                    highScoreLabel?.text = "-"
+                }
+            }
+        } else {
+            if score > totalHighScore {
+                highScoreLabel?.text = String(score)
+                highScoreTitleLabel?.text = "New High Score!"
+            } else {
+                highScoreTitleLabel?.text = "High Score"
+                highScoreLabel?.text = String(totalHighScore)
+            }
+        }
         if score > totalHighScore {
             UserDefaults.standard.set(score, forKey: totalHighScoreKey)
-        }
-        if ride?.highScore ?? 0 < score {
-            highScoreLabel?.text = String(score)
-            highScoreTitleLabel?.text = "New High Score!"
-            ride?.setNewHighScore(score: score)
-        } else {
-            highScoreTitleLabel?.text = "High Score"
-            if let highScore = ride?.highScore {
-                highScoreLabel?.text = String(highScore)
-            } else {
-                highScoreLabel?.text = "-"
-            }
         }
         scoreLabel?.isHidden = false
         highScoreLabel?.isHidden = false

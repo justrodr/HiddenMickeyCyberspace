@@ -12,10 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCARCameraViewController" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
             <connections>
                 <outlet property="distanceLabel" destination="Jke-hr-BHr" id="Btj-XM-aTZ"/>
+                <outlet property="eggImageView" destination="4Nu-Yk-erh" id="tLb-Il-9ZA"/>
                 <outlet property="leaveButton" destination="hHR-jm-Gfh" id="gcu-RU-v2C"/>
-                <outlet property="mickeyHeadLeftEarView" destination="6X8-uX-q7a" id="XId-ij-Ero"/>
-                <outlet property="mickeyHeadRightEarView" destination="IxP-0T-dhT" id="McH-Z7-0nP"/>
-                <outlet property="mickeyHeadView" destination="1T3-Tx-Zpu" id="Uxd-z7-sWK"/>
                 <outlet property="sceneView" destination="l4l-mI-Ckq" id="Paw-LE-kYH"/>
                 <outlet property="scoreContainerView" destination="5Ba-2B-mM6" id="jOn-DW-XQf"/>
                 <outlet property="scoreLabel" destination="Zh4-kQ-C4J" id="rTT-Qx-pt9"/>
@@ -54,51 +52,30 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ba-2B-mM6">
-                    <rect key="frame" x="88" y="737" width="238.5" height="100"/>
+                    <rect key="frame" x="113" y="737" width="188.5" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh4-kQ-C4J">
-                            <rect key="frame" x="160" y="17" width="28.5" height="66"/>
+                            <rect key="frame" x="128" y="17" width="28.5" height="66"/>
                             <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="48"/>
                             <color key="textColor" red="0.043137254899999998" green="0.43921568630000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxP-0T-dhT">
-                            <rect key="frame" x="100" y="15" width="35" height="35"/>
-                            <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egg" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-Yk-erh">
+                            <rect key="frame" x="16" y="10" width="80" height="80"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="35" id="Jdc-V0-9jp"/>
-                                <constraint firstAttribute="height" constant="35" id="ZB6-oy-WfU"/>
+                                <constraint firstAttribute="width" constant="80" id="Sy4-cu-5TK"/>
+                                <constraint firstAttribute="height" constant="80" id="UOm-7i-4e4"/>
                             </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X8-uX-q7a">
-                            <rect key="frame" x="45" y="15" width="35" height="35"/>
-                            <color key="backgroundColor" systemColor="systemPinkColor"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="35" id="YKg-0P-KGs"/>
-                                <constraint firstAttribute="height" constant="35" id="jHb-n4-fuY"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1T3-Tx-Zpu">
-                            <rect key="frame" x="65" y="35" width="50" height="50"/>
-                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="PFq-CT-f7T"/>
-                                <constraint firstAttribute="width" constant="50" id="bj8-pH-del"/>
-                            </constraints>
-                        </view>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="IxP-0T-dhT" firstAttribute="leading" secondItem="1T3-Tx-Zpu" secondAttribute="trailing" constant="-15" id="CTG-9x-uj6"/>
-                        <constraint firstItem="1T3-Tx-Zpu" firstAttribute="top" secondItem="IxP-0T-dhT" secondAttribute="bottom" constant="-15" id="Kes-sq-JY1"/>
-                        <constraint firstItem="1T3-Tx-Zpu" firstAttribute="leading" secondItem="5Ba-2B-mM6" secondAttribute="leading" constant="65" id="O95-Vf-L4I"/>
+                        <constraint firstAttribute="trailing" secondItem="Zh4-kQ-C4J" secondAttribute="trailing" constant="32" id="J0g-xY-lNq"/>
+                        <constraint firstItem="4Nu-Yk-erh" firstAttribute="centerY" secondItem="5Ba-2B-mM6" secondAttribute="centerY" id="L9M-JR-b2r"/>
                         <constraint firstItem="Zh4-kQ-C4J" firstAttribute="centerY" secondItem="5Ba-2B-mM6" secondAttribute="centerY" id="PH6-BW-pBC"/>
-                        <constraint firstItem="1T3-Tx-Zpu" firstAttribute="leading" secondItem="6X8-uX-q7a" secondAttribute="trailing" constant="-15" id="bXq-an-uov"/>
+                        <constraint firstItem="4Nu-Yk-erh" firstAttribute="leading" secondItem="5Ba-2B-mM6" secondAttribute="leading" constant="16" id="RD5-r4-dKr"/>
                         <constraint firstAttribute="height" constant="100" id="ipD-br-K5L"/>
-                        <constraint firstItem="1T3-Tx-Zpu" firstAttribute="top" secondItem="6X8-uX-q7a" secondAttribute="bottom" constant="-15" id="kZV-Ws-Kwb"/>
-                        <constraint firstAttribute="trailing" secondItem="Zh4-kQ-C4J" secondAttribute="trailing" constant="50" id="lxO-sh-Xuf"/>
-                        <constraint firstItem="Zh4-kQ-C4J" firstAttribute="leading" secondItem="IxP-0T-dhT" secondAttribute="trailing" constant="25" id="mbU-09-j8E"/>
-                        <constraint firstAttribute="bottom" secondItem="1T3-Tx-Zpu" secondAttribute="bottom" constant="15" id="wTA-aN-9lq"/>
+                        <constraint firstItem="Zh4-kQ-C4J" firstAttribute="leading" secondItem="4Nu-Yk-erh" secondAttribute="trailing" constant="32" id="vUX-Pq-KB1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQg-72-kgQ" customClass="TimerProgressBarView" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
@@ -138,14 +115,9 @@
         </view>
     </objects>
     <resources>
+        <image name="egg" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
