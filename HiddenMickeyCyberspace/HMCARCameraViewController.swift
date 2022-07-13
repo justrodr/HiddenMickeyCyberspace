@@ -31,6 +31,7 @@ class HMCARCameraViewController: UIViewController {
     private var score: Int = 0
     private let hideDistanceLabel: Bool = true
     private let spinDuration: CGFloat = 2
+    private var numMickeysGenerated: Int = 10
     weak var delegate: HMCARCameraViewControllerDelegate?
     var ride: HMCRide?
 //    var mickeyHeadColor: UIColor = .blue
@@ -52,6 +53,7 @@ class HMCARCameraViewController: UIViewController {
         scoreLabel.textColor = HMCTextColor1
         if let ride = ride {
             scoreLabel.textColor = ride.colors.headColor
+            numMickeysGenerated = 11 - ride.difficulty
         }
         
         if var image = eggImageView.image {
@@ -84,7 +86,7 @@ class HMCARCameraViewController: UIViewController {
     
     func placeRandomHiddenMickeys() {
         var hiddenMickeyCenterPoints: [(CGFloat, CGFloat, CGFloat)] = []
-        for _ in 1...10 {
+        for _ in 1...numMickeysGenerated {
             hiddenMickeyCenterPoints.append((randomNumbers(firstNum: -hiddenMickeyPlacementRadius, secondNum: hiddenMickeyPlacementRadius), randomNumbers(firstNum: -hiddenMickeyPlacementRadius, secondNum: hiddenMickeyPlacementRadius), randomNumbers(firstNum: -hiddenMickeyPlacementRadius, secondNum: hiddenMickeyPlacementRadius)))
         }
         

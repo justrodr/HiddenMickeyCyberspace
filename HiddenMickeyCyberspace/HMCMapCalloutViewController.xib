@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HMCMapCalloutViewController" customModule="HiddenMickeyCyberspace" customModuleProvider="target">
             <connections>
                 <outlet property="cardView" destination="dot-kf-RQY" id="e8x-kl-RbZ"/>
+                <outlet property="difficultyLabel" destination="nWy-LG-wQX" id="4QL-dN-Mbv"/>
                 <outlet property="eggImageView" destination="v7c-gJ-O6I" id="LdG-Gi-RsX"/>
                 <outlet property="highScoreLabel" destination="Hwc-SE-Xs6" id="gXV-d8-fZH"/>
                 <outlet property="playButton" destination="jG6-hU-Pn1" id="kwA-ZQ-hTF"/>
@@ -70,18 +71,26 @@
                                 <constraint firstAttribute="height" constant="150" id="ReU-dT-gSd"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWy-LG-wQX">
+                            <rect key="frame" x="138.5" y="263.5" width="73" height="25"/>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="jG6-hU-Pn1" secondAttribute="bottom" constant="32" id="6A1-cM-Fqm"/>
                         <constraint firstItem="onI-NY-rfF" firstAttribute="top" secondItem="dot-kf-RQY" secondAttribute="top" constant="16" id="7sc-Ey-p8M"/>
                         <constraint firstItem="jG6-hU-Pn1" firstAttribute="centerX" secondItem="dot-kf-RQY" secondAttribute="centerX" id="B0H-NS-zLw"/>
+                        <constraint firstItem="jG6-hU-Pn1" firstAttribute="top" secondItem="nWy-LG-wQX" secondAttribute="bottom" constant="5" id="Ekz-8C-90h"/>
                         <constraint firstItem="Hwc-SE-Xs6" firstAttribute="top" secondItem="Hh6-OE-6Be" secondAttribute="bottom" id="FCU-We-sUD"/>
                         <constraint firstAttribute="trailing" secondItem="Hh6-OE-6Be" secondAttribute="trailing" constant="16" id="JMY-bL-bkj"/>
                         <constraint firstItem="Hh6-OE-6Be" firstAttribute="top" secondItem="v7c-gJ-O6I" secondAttribute="bottom" constant="16" id="Mb0-3o-NSL"/>
                         <constraint firstItem="v7c-gJ-O6I" firstAttribute="centerX" secondItem="dot-kf-RQY" secondAttribute="centerX" id="Mhs-6J-qmq"/>
+                        <constraint firstItem="nWy-LG-wQX" firstAttribute="top" secondItem="Hwc-SE-Xs6" secondAttribute="bottom" constant="2" id="aeN-IC-sxs"/>
                         <constraint firstAttribute="trailing" secondItem="onI-NY-rfF" secondAttribute="trailing" constant="16" id="ahq-1X-xWU"/>
-                        <constraint firstItem="jG6-hU-Pn1" firstAttribute="top" secondItem="Hwc-SE-Xs6" secondAttribute="bottom" constant="32" id="dBb-Y2-HHH"/>
+                        <constraint firstItem="nWy-LG-wQX" firstAttribute="centerX" secondItem="dot-kf-RQY" secondAttribute="centerX" id="h7W-YN-bO3"/>
                         <constraint firstItem="v7c-gJ-O6I" firstAttribute="top" secondItem="dot-kf-RQY" secondAttribute="top" constant="32" id="qUF-Eh-wa1"/>
                         <constraint firstItem="Hwc-SE-Xs6" firstAttribute="centerX" secondItem="dot-kf-RQY" secondAttribute="centerX" id="vma-WE-RiF"/>
                         <constraint firstItem="Hh6-OE-6Be" firstAttribute="leading" secondItem="dot-kf-RQY" secondAttribute="leading" constant="16" id="x8H-sh-cST"/>

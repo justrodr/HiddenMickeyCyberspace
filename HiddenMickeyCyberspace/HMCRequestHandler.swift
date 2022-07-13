@@ -22,9 +22,9 @@ class HMCRequestHandler {
             HMCRequestHandler.ref.child("rides").child(ride.rideID).child("headColor").setValue(ride.colors.headColor.hexString)
             HMCRequestHandler.ref.child("rides").child(ride.rideID).child("earBorderColor").setValue(ride.colors.earBorderColor?.hexString)
             HMCRequestHandler.ref.child("rides").child(ride.rideID).child("headBorderColor").setValue(ride.colors.headBorderColor?.hexString)
-            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("highScore").setValue(ride.highScore)
             HMCRequestHandler.ref.child("rides").child(ride.rideID).child("isPremiumRide").setValue(ride.isPremiumRide)
             HMCRequestHandler.ref.child("rides").child(ride.rideID).child("park").setValue(ride.park)
+            HMCRequestHandler.ref.child("rides").child(ride.rideID).child("difficulty").setValue(ride.difficulty)
         }
     }
     
@@ -42,6 +42,7 @@ class HMCRequestHandler {
                               let earBorderColor = rideDict["earBorderColor"] as? String?,
                               let headBorderColor = rideDict["headBorderColor"] as? String?,
                               let isPremiumRide = rideDict["isPremiumRide"] as? Bool,
+                              let difficulty = rideDict["difficulty"] as? Int,
                               let park = rideDict["park"] as? String else {
                             return
                         }
@@ -53,6 +54,7 @@ class HMCRequestHandler {
                         let ride = HMCRide(title: title,
                                            coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
                                            isPremiumRide: isPremiumRide,
+                                           difficulty: difficulty,
                                            park: park,
                                            headColor: uiHeadColor,
                                            earColor: uiEarColor,

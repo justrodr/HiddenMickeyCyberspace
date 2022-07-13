@@ -42,9 +42,9 @@ class HMCCollectionViewCell: UICollectionViewCell {
         
         rideTitleLabel.text = "\(ride.title) \(ride.park)"
         if ride.highScore > 0 {
-            highScoreLabel.text = "High Score: \(ride.highScore)"
+            highScoreLabel.text = "High Score: \(ride.highScore) \n Difficulty: \(ride.difficulty)"
         } else {
-            highScoreLabel.text = "High Score: -"
+            highScoreLabel.text = "High Score: - \n Difficulty: \(ride.difficulty)"
         }
         
         if !ride.hasPlayedRide {

@@ -17,6 +17,7 @@ class HMCMapCalloutViewController: UIViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var rideTitleLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
     var delegate: HMCMapCalloutViewControllerDelegate?
@@ -36,6 +37,7 @@ class HMCMapCalloutViewController: UIViewController {
         cardView.backgroundColor = HMCBackgroundColor1
         rideTitleLabel.textColor = HMCTextColor1
         highScoreLabel.textColor = HMCTextColor1
+        difficultyLabel.textColor = HMCTextColor1
         isModalEnabled(isHidden: true)
     }
     
@@ -52,6 +54,7 @@ class HMCMapCalloutViewController: UIViewController {
         
         rideTitleLabel.text = ride.title
         highScoreLabel.text = "High Score: \(ride.highScore <= 0 ? "-" : String(ride.highScore))"
+        difficultyLabel.text = "Difficulty: \(ride.difficulty)"
         if ride.isPremiumRide && !UserDefaults.standard.bool(forKey: hasOptedInToFakePurchaseKey) {
             let attributedButtonTitle = NSAttributedString(string: "Unlock",
                                                            attributes: [NSAttributedString.Key.foregroundColor : HMCTextColor2, NSAttributedString.Key.font : UIFont(name: "Avenir Black", size: 24)])

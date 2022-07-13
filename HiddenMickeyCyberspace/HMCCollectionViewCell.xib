@@ -18,22 +18,22 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ade-3q-Jqv">
-                        <rect key="frame" x="8" y="101" width="152" height="15.5"/>
+                        <rect key="frame" x="8" y="90" width="152" height="15.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gx2-mZ-fJc">
-                        <rect key="frame" x="60.5" y="116.5" width="47.5" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gx2-mZ-fJc">
+                        <rect key="frame" x="8" y="105.5" width="152" height="15.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egg" translatesAutoresizingMaskIntoConstraints="NO" id="oqJ-Wd-MSb">
-                        <rect key="frame" x="54" y="18" width="60" height="75"/>
+                        <rect key="frame" x="54" y="12" width="60" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="WmB-mH-WnU"/>
-                            <constraint firstAttribute="height" constant="75" id="t60-hP-Pcc"/>
+                            <constraint firstAttribute="height" constant="70" id="t60-hP-Pcc"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -41,13 +41,15 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="gx2-mZ-fJc" firstAttribute="top" secondItem="ade-3q-Jqv" secondAttribute="bottom" id="0ES-ZA-ps3"/>
+                <constraint firstItem="gx2-mZ-fJc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="2Kf-I9-0EU"/>
+                <constraint firstAttribute="trailing" secondItem="gx2-mZ-fJc" secondAttribute="trailing" constant="8" id="2LQ-5S-2U1"/>
                 <constraint firstAttribute="trailing" secondItem="ade-3q-Jqv" secondAttribute="trailing" constant="8" id="41h-TS-PVw"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gx2-mZ-fJc" secondAttribute="bottom" constant="8" id="Ank-Em-Ywn"/>
                 <constraint firstItem="gx2-mZ-fJc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Kfm-5M-sWs"/>
                 <constraint firstItem="ade-3q-Jqv" firstAttribute="top" secondItem="oqJ-Wd-MSb" secondAttribute="bottom" constant="8" id="MMX-0M-6hv"/>
                 <constraint firstItem="ade-3q-Jqv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Nee-IX-9jB"/>
                 <constraint firstItem="oqJ-Wd-MSb" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Nuu-yA-KzM"/>
-                <constraint firstItem="oqJ-Wd-MSb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="18" id="SA9-aO-5Te"/>
+                <constraint firstItem="oqJ-Wd-MSb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="SA9-aO-5Te"/>
                 <constraint firstItem="ade-3q-Jqv" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YHA-z4-phR"/>
             </constraints>
             <connections>

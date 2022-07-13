@@ -105,7 +105,7 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
         
         if !userIsNearDisneyPark(currentLocation: currentLocation.coordinate) && hasShownLocationErrorMessage == false {
             hasShownLocationErrorMessage = true
-            let alert = UIAlertController(title: "Looks like you're not in a Disney park", message: "You'll be able to collect hidden Mickeys once you're in a park. For now, you can play in quick play mode using the play button on the right.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Looks like you're not near any attractions", message: "You'll be able to collect hidden Easter eggs once you're near attractions. For now, you can play in quick play mode using the play button on the right.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
