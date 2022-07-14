@@ -27,12 +27,17 @@ class HMCProfileViewController: UIViewController {
         unlockRidesButton.isHidden = true
         requestHandler.readProfileTabConfig {
             if isUnlockButtonEnabled == true {
+                HMCRequestHandler().logEvent(eventTitle: profilePurchaseButtonImpressionEventKey)
                 self.unlockRidesButton.isHidden = false
+                if !UserDefaults.standard.bool(forKey: hasSeenProfileUpsellKey) {
+                    HMCRequestHandler().logEvent(eventTitle: profilePurchaseButtonFirstImpressionEventKey)
+                    UserDefaults.standard.set(true, forKey: hasSeenProfileUpsellKey)
+                }
             }
         }
         
         configureButton(title: "Clear local data", button: clearLocalDataButton)
-        configureButton(title: "Unlock all rides", button: unlockRidesButton)
+        configureButton(title: "Purchase all rides access", button: unlockRidesButton)
         usernameTextfield.textColor = HMCTextColor1
         profileImage.layer.cornerRadius = 100
         usernameTextfield.delegate = self
@@ -61,11 +66,11 @@ class HMCProfileViewController: UIViewController {
     }
     
     @IBAction func didPressUnlockRidesButton(_ sender: Any) {
-        let alert = UIAlertController(title: unlockRidesAlertMessage, message: nil, preferredStyle: .alert)
+        HMCRequestHandler().logEvent(eventTitle: calloutPurchaseButtonTapEventKey)
+        let alert = UIAlertController(title: unlockRidesAlertTitle, message: unlockRidesAlertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: unlockRidesAlertButton, style: .default, handler: { action in
             UserDefaults.standard.set(true, forKey: hasOptedInToFakePurchaseKey)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 

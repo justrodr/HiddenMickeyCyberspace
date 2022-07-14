@@ -106,14 +106,26 @@ class HMCRequestHandler {
                 if let configDict = snapshot.value as? [String : AnyObject] {
                     guard let isUnlockButtonEnabledRead = configDict["isUnlockButtonEnabled"] as? Bool,
                           let unlockRidesAlertButtonRead = configDict["unlockRidesAlertButton"] as? String,
-                          let unlockRidesAlertMessageRead = configDict["unlockRidesAlertMessage"] as? String else {
+                          let unlockRidesAlertMessageRead = configDict["unlockRidesAlertMessage"] as? String,
+                          let unlockRidesAlertTitleRead = configDict["unlockRidesAlertTitle"] as? String else {
                         return
                     }
                     isUnlockButtonEnabled = isUnlockButtonEnabledRead
                     unlockRidesAlertButton = unlockRidesAlertButtonRead
                     unlockRidesAlertMessage = unlockRidesAlertMessageRead
+                    unlockRidesAlertTitle = unlockRidesAlertTitleRead
                     completion()
                 }
+            }
+        }
+    }
+    
+    func logEvent(eventTitle: String) {
+        HMCRequestHandler.ref.child("metrics").child(eventTitle).observeSingleEvent(of: .value) { snapshot in
+            if let count = snapshot.value as? Int {
+                HMCRequestHandler.ref.child("metrics").child(eventTitle).setValue(count + 1)
+            } else {
+                HMCRequestHandler.ref.child("metrics").child(eventTitle).setValue(1)
             }
         }
     }

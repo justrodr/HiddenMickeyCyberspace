@@ -55,10 +55,15 @@ class HMCMapCalloutViewController: UIViewController {
         rideTitleLabel.text = ride.title
         highScoreLabel.text = "High Score: \(ride.highScore <= 0 ? "-" : String(ride.highScore))"
         difficultyLabel.text = "Difficulty: \(ride.difficulty)"
-        if ride.isPremiumRide && !UserDefaults.standard.bool(forKey: hasOptedInToFakePurchaseKey) {
-            let attributedButtonTitle = NSAttributedString(string: "Unlock",
+        if ride.isPremiumRide && !UserDefaults.standard.bool(forKey: hasOptedInToFakePurchaseKey) && isUnlockButtonEnabled {
+            HMCRequestHandler().logEvent(eventTitle: calloutPurchaseButtonImpressionEventKey)
+            let attributedButtonTitle = NSAttributedString(string: "Purchase",
                                                            attributes: [NSAttributedString.Key.foregroundColor : HMCTextColor2, NSAttributedString.Key.font : UIFont(name: "Avenir Black", size: 24)])
             playButton.setAttributedTitle(attributedButtonTitle, for: .normal)
+            if !UserDefaults.standard.bool(forKey: hasSeenCalloutUpsellKey) {
+                HMCRequestHandler().logEvent(eventTitle: hasSeenCalloutUpsellKey)
+                UserDefaults.standard.set(true, forKey: hasSeenCalloutUpsellKey)
+            }
         }
         isModalEnabled(isHidden: false)
     }
@@ -74,7 +79,23 @@ class HMCMapCalloutViewController: UIViewController {
     }
     
     @IBAction func didPressPlayButton(_ sender: Any) {
-        self.dismiss(animated: true)
+        if let ride = ride, ride.isPremiumRide && !UserDefaults.standard.bool(forKey: hasOptedInToFakePurchaseKey) && isUnlockButtonEnabled
+        {
+            let alert = UIAlertController(title: unlockRidesAlertTitle, message: unlockRidesAlertMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: unlockRidesAlertButton, style: .default, handler: { action in
+                UserDefaults.standard.set(true, forKey: hasOptedInToFakePurchaseKey)
+                HMCRequestHandler().logEvent(eventTitle: calloutPurchaseButtonTapEventKey)
+                self.dismiss(animated: true)
+                self.launchGame()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.dismiss(animated: true)
+            launchGame()
+        }
+    }
+    
+    func launchGame() {
         if let ride = ride {
             delegate?.playRide(ride: ride)
         }

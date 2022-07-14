@@ -51,6 +51,7 @@ class HMCHomeMapViewController: HMCViewController, CLLocationManagerDelegate {
                 self.configureMapView()
             }
         }
+        requestHandler.readProfileTabConfig(completion: {})
     }
     
     func configureMapView() {

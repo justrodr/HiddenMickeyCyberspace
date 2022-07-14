@@ -15,6 +15,8 @@ let hasOptedInToFakePurchaseKey = "hasOptedInToFakePurchasekey"
 let hasUsedNatlieUFunnyCheatCodeKey = "hasUsedNatlieUFunnyCheatCodeKey"
 let natalieCheatCode = "natalieufunny"
 let testerCheatCode = "tester123"
+let hasSeenCalloutUpsellKey = "hasSeenCalloutUpsellKey"
+let hasSeenProfileUpsellKey = "hasSeenProfileUpsellKey"
 
 struct HMCMickeyColors {
     var headColor: UIColor
@@ -93,7 +95,7 @@ let buzzLightyearRide =  HMCRide(title: "Buzz Lightyear's Spaceranger Spin",
 
 let splashMountainRide = HMCRide(title: "Splash Mountain",
                                  coordinate: CLLocationCoordinate2D(latitude: 28.41939713102671, longitude: -81.584624247281),
-                                 isPremiumRide: false,
+                                 isPremiumRide: true,
                                  difficulty: 5,
                                  park: "MK",
                                  headColor: UIColor(red: 254/255, green: 125/255, blue: 64/255, alpha: 1),
@@ -101,7 +103,7 @@ let splashMountainRide = HMCRide(title: "Splash Mountain",
 
 let spaceMountainRide = HMCRide(title: "Space Mountain",
                                 coordinate: CLLocationCoordinate2D(latitude: 28.41901488294059, longitude: -81.57817869008407),
-                                isPremiumRide: false,
+                                isPremiumRide: true,
                                 difficulty: 6,
                                 park: "MK",
                                 headColor: UIColor(red: 93/255, green: 180/255, blue: 203/255, alpha: 1),
@@ -110,7 +112,7 @@ let spaceMountainRide = HMCRide(title: "Space Mountain",
 
 let sevenDwarfsMineTrainRide = HMCRide(title: "Seven Dwarfs Mine Train",
                                        coordinate: CLLocationCoordinate2D(latitude: 28.420694072209237, longitude: -81.57958966946528),
-                                       isPremiumRide: false,
+                                       isPremiumRide: true,
                                        difficulty: 3,
                                        park: "MK",
                                        headColor: UIColor(red: 254/255, green: 234/255, blue: 132/255, alpha: 1),
@@ -217,7 +219,15 @@ var titleRideMap: [String: HMCRide] = [:
 //    "Big Thunder Mountain Railroad MK" : bigThunderRide
 ]
 
-var unlockRidesAlertMessage: String = "Are you sure you want to unlock all rides??"
-var unlockRidesAlertButton: String = "Yes unlock!"
+var unlockRidesAlertTitle: String = "Purchase all rides access"
+var unlockRidesAlertMessage: String = "You're in luck - Unlimited rides passes are currently free!"
+var unlockRidesAlertButton: String = "Awesome!"
 var isUnlockButtonEnabled: Bool = true
+
+let profilePurchaseButtonImpressionEventKey = "profilePurchaseButtonImpressionEventKey"
+let profilePurchaseButtonFirstImpressionEventKey = "profilePurchaseButtonFirstImpressionEventKey"
+let profilePurchaseButtonTapEventKey = "profilePurchaseButtonTapEventKey"
+let calloutPurchaseButtonImpressionEventKey = "calloutPurchaseButtonImpressionEventKey"
+let calloutPurchaseButtonFirstImpressionEventKey = "calloutPurchaseButtonFirstImpressionEventKey"
+let calloutPurchaseButtonTapEventKey = "calloutPurchaseButtonTapEventKey"
 
